@@ -1,0 +1,120 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+framework:
+    translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        handler_id:  session.handler.pdo
+        cookie_domain: %domain%
+    fragments:       ~
+    http_method_override: true
+
+parameters:
+    pdo.db_options:
+        db_table:    session
+        db_id_col:   session_id
+        db_data_col: session_value
+        db_lifetime_col: session_lifetime
+        db_time_col: session_time
+        lock_mode: 0
+
+services:
+    pdo:
+        class: PDO
+        arguments:
+            dsn: mysql:host=%database_host%;port=%database_port%;dbname=%database_name%
+            user: %database_user%
+            password: %database_password%
+        calls:
+            - [ setAttribute, [3, 2] ] # \PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION
+
+    session.handler.pdo:
+        class:     Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
+        arguments: [@pdo, %pdo.db_options%]
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    filters:
+        cssrewrite: ~
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+# Snc redis Bundle
+snc_redis:
+    clients:
+        notification:
+            type: predis
+            alias: notification #snc_redis.notification
+            dsn: redis://127.0.0.1/1
+            logging: %kernel.debug%
+            options:
+                read_write_timeout: 0
+        cache:
+            type: predis
+            alias: cache #snc_redis.cache
+            dsn: redis://127.0.0.1/2
+            logging: %kernel.debug%
+            options:
+                profile: 2.8
+                connection_timeout: 10
+                read_write_timeout: 30
+
+# Gos Web Socket Bundle
+gos_web_socket:
+    client:
+        firewall: secured_area
+        session_handler: @session.handler.pdo
+        storage:
+            driver: @gos_web_scocket.client_storage.driver.predis
+#            decorator: @gos_web_socket.client_storage.doctrine.decorator
+    shared_config: true
+    server:
+        host: notification.dev
+        port: 1337
+        origin_check: true
+    origins:
+        - www.notification.dev
+        - notification.dev

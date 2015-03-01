@@ -1,0 +1,121 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    {{ render(controller('AppBundle:Security:login')) }}
+
+    <div ng-app="main">
+        <div ng-controller="myController" ng-init="init()">
+            Homepage.
+
+            <input type="text" ng-model="message">
+            <input type="submit" ng-click="send(message)">
+
+            <toaster-container></toaster-container>
+            <button ng-click="pop()">Show a notification</button>
+        </div>
+    </div>
+
+    {{ include('@App/App/notification.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/angular.js') }}" ></script>
+    <script src="{{ asset('js/angular-animate.min.js') }}" ></script>
+    <script src="{{ asset('js/angular-touch.js') }}" ></script>
+    <script src="{{ asset('js/toaster.js') }}"></script>
+    {{ ws_client() }}
+    <script>
+        var _WS_URI = "ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}";
+        var ws = WS.connect(_WS_URI);
+
+        var app = angular.module('main', ['toaster']);
+
+        app.config(['$interpolateProvider', function($interpolateProvider) {
+            $interpolateProvider.startSymbol('[[').endSymbol(']]');
+        }]);
+
+        app.config(['$sceProvider', '$httpProvider', function($sceProvider, $httpProvider) {
+            $sceProvider.enabled(false);
+            $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+        }]);
+
+        app.controller('myController', function($scope, toaster, $window) {
+            {% if user is not null %}
+                $scope.topic = "notification/user/{{ user.username }}";
+            {% else %}
+                $scope.topic = "notification/user/anon";
+            {% endif %}
+            $scope.message = 'hello world';
+            console.log($scope.topic);
+            $scope.init = function(){
+                ws.on("socket/connect", function(session){
+                    session.subscribe($scope.topic, function(topic, payload){
+                        console.log($scope.topic);
+
+                        $scope.$apply(function(){
+                            console.log(payload);
+
+                            //Object {
+                            // uuid: "7fd83972-db9e-4817-bccc-cf71296be762",
+                            // type: "info",
+                            // icon: null,
+                            // viewed_at: null,
+                            // created_at: "2015-02-28T14:24:24+01:00"…}
+                            // content: "Hello world"created_at: "2015-02-28T14:24:24+01:00"
+                            // icon: null
+                            toaster.pop(payload.type, payload.title, payload.content);
+                        });
+                    });
+
+                    {% if user is not null %}
+                        session.subscribe('notification/user/all', function(topic, payload){
+                            console.log('notification/user/all');
+                            $scope.$apply(function(){
+                                console.log(payload);
+
+                                //Object {
+                                // uuid: "7fd83972-db9e-4817-bccc-cf71296be762",
+                                // type: "info",
+                                // icon: null,
+                                // viewed_at: null,
+                                // created_at: "2015-02-28T14:24:24+01:00"…}
+                                // content: "Hello world"created_at: "2015-02-28T14:24:24+01:00"
+                                // icon: null
+                                toaster.pop(payload.type, payload.title, payload.content);
+                            });
+                        });
+                    {% endif %}
+
+                    $scope.$on('publish', function(event, message){
+                        session.publish($scope.topic, message);
+                    });
+
+                    $window.onbeforeunload = function() {
+                        session.unsubscribe($scope.topic);
+                    };
+                });
+
+                ws.on("socket/disconnect", function(error){
+                    console.log("Disconnected for " + error.reason + " with code " + error.code);
+                });
+            };
+
+            $scope.send = function(message){
+                $scope.$emit('publish', {
+                    message: message,
+                    type: "success",
+                    title: "websocket"
+                });
+            };
+
+            $scope.pop = function(){
+                toaster.pop('success', "title", "text");
+            };
+        });
+    </script>
+{% endblock %}

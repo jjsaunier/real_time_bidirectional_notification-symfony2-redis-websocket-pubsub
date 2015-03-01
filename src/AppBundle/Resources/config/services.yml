@@ -1,0 +1,5 @@
+services:
+    gos_web_scocket.client_storage.driver.predis:
+        class: Gos\Bundle\WebSocketBundle\Client\Driver\PredisDriver
+        arguments:
+            - @snc_redis.cache

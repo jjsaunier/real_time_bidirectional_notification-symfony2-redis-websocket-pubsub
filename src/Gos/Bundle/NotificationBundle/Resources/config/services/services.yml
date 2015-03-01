@@ -1,0 +1,42 @@
+services:
+    gos_notification.notification_center:
+        class: Gos\Bundle\NotificationBundle\NotificationCenter
+        arguments:
+            - @snc_redis.notification
+            - @?monolog.logger.websocket
+
+    gos_notification.notification.redis_server:
+        class: Gos\Bundle\NotificationBundle\Server\RedisServer
+        arguments:
+            - @event_dispatcher
+            - @?monolog.logger.websocket
+        tags:
+            - { name: gos_web_socket.server }
+
+    gos_notification.notification.user.consumer:
+        class: Gos\Bundle\NotificationBundle\Consumer\UserNotificationConsumer
+        arguments:
+            - @gos_web_socket.client_storage
+            - @snc_redis.cache_client
+        tags:
+            - { name: gos_notification.consumer }
+
+    gos_notification.notification.consumer.registry:
+        class: Gos\Bundle\NotificationBundle\Consumer\ConsumerRegistry
+
+    gos_notification.notification.listener:
+        class: Gos\Bundle\NotificationBundle\Listener\NotificationListener
+        arguments:
+            - @gos_notification.notification.consumer.registry
+        tags:
+            - { name: kernel.event_listener, event: gos_notification.notification.new, method: onNotification }
+
+    gos_notification.message.listener:
+        class: Gos\Bundle\NotificationBundle\Listener\MessageListener
+        tags:
+            - { name: kernel.event_listener, event: gos_notification.message.published, method: onPublish }
+
+    gos_notification.user.topic:
+        class: Gos\Bundle\NotificationBundle\Topic\UserNotificationTopic
+        tags:
+            - { name: gos_web_socket.topic }

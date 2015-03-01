@@ -1,0 +1,22 @@
+<h2>Lastest notification</h2>
+
+<ul class="inline">
+    {% for notification in notifications %}
+        <li class="{{ notification.type }} text-{{ notification.type }}">
+            <div class="well">
+                <div class="muted">
+                    {{ notification.createdAt|date }}
+                </div>
+
+                <p>{{ notification.content }}</p>
+                <p>
+                    {% if notification.viewedAt is not null %}
+                        {{ notification.viewedAt|date }}
+                    {% else %}
+                        Not viewed
+                    {% endif %}
+                </p>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
