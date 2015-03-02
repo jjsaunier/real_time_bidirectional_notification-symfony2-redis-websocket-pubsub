@@ -5,7 +5,7 @@ namespace Gos\Bundle\NotificationBundle\Model;
 /**
  * @author Johann Saunier <johann_27@hotmail.fr>
  */
-interface NotificationInterface extends \JsonSerializable, \Serializable
+interface NotificationInterface extends \JsonSerializable
 {
     /**
      * @return string
@@ -81,11 +81,4 @@ interface NotificationInterface extends \JsonSerializable, \Serializable
      * @return array
      */
     public function toArray();
-
-    /**
-     * @param array $notificationArray
-     *
-     * @return Notification
-     */
-    public static function toObject(Array $notificationArray);
 }

@@ -32,6 +32,7 @@ parameters:
         db_time_col: session_time
         lock_mode: 0
 
+
 services:
     pdo:
         class: PDO
@@ -118,3 +119,20 @@ gos_web_socket:
     origins:
         - www.notification.dev
         - notification.dev
+
+# Gos Notification
+gos_notification:
+    pusher:
+        - @gos_notification.pusher.redis
+        - @gos_notification.pusher.websocket
+    fetcher: @gos_notification.fetcher.redis
+    class:
+        notification: Gos\Bundle\NotificationBundle\Model\Notification
+        notification_context: Gos\Bundle\NotificationBundle\Context\NotificationContext
+    pubsub_server:
+        type: redis #today tha'ts change nothing, only redis is available
+        host: 127.0.0.1
+        port: 6379
+
+
+

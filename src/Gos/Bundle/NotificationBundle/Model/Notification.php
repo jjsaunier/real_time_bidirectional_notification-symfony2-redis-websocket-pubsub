@@ -5,7 +5,7 @@ namespace Gos\Bundle\NotificationBundle\Model;
 /**
  * @author Johann Saunier <johann_27@hotmail.fr>
  */
-class Notification implements \JsonSerializable, \Serializable, NotificationInterface
+class Notification implements NotificationInterface
 {
     const TYPE_INFO = 'info';
     const TYPE_DANGER = 'danger';
@@ -185,24 +185,6 @@ class Notification implements \JsonSerializable, \Serializable, NotificationInte
     }
 
     /**
-     * @param array $notificationArray
-     *
-     * @return Notification
-     */
-    public static function toObject(Array $notificationArray)
-    {
-        $notificationObj = new Notification();
-        $notificationObj->setType($notificationArray['type']);
-        $notificationObj->setIcon($notificationArray['icon']);
-        $notificationObj->setViewedAt($notificationArray['viewed_at'] ? new \DateTime($notificationArray['viewed_at']) : null);
-        $notificationObj->setCreatedAt(new \DateTime($notificationArray['created_at']));
-        $notificationObj->setContent($notificationArray['content']);
-        $notificationObj->setTitle($notificationArray['title']);
-
-        return $notificationObj;
-    }
-
-    /**
      * (PHP 5 &gt;= 5.4.0)<br/>
      * Specify data which should be serialized to JSON
      *
@@ -213,44 +195,5 @@ class Notification implements \JsonSerializable, \Serializable, NotificationInte
     public function jsonSerialize()
     {
         return $this->toArray();
-    }
-
-    /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
-     * String representation of object
-     *
-     * @link http://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
-     */
-    public function serialize()
-    {
-        return serialize(array_values($this->toArray()));
-    }
-
-    /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
-     * Constructs the object
-     *
-     * @link http://php.net/manual/en/serializable.unserialize.php
-     *
-     * @param string $serialized <p>
-     *                           The string representation of the object.
-     *                           </p>
-     *
-     * @return void
-     */
-    public function unserialize($serialized)
-    {
-        list(
-            $this->type,
-            $this->icon,
-            $this->viewedAt,
-            $this->createdAt,
-            $this->content,
-            $this->title
-            ) = unserialize($serialized);
-
-        $this->viewedAt = $this->viewedAt ? new \DateTime($this->viewedAt) : null;
-        $this->createdAt = new \DateTime($this->createdAt);
     }
 }

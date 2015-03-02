@@ -19,3 +19,6 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     domain: .notification.dev
+
+    predis_async_port: 6379
+    predis_async_host: 127.0.0.1

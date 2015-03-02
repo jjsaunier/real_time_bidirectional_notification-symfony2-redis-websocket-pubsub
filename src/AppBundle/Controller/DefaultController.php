@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
-use Gos\Bundle\NotificationBundle\Context\PusherIdentity;
+use Gos\Bundle\NotificationBundle\Context\NotificationContext;
 use Gos\Bundle\NotificationBundle\Model\Notification;
+use Gos\Bundle\NotificationBundle\Pusher\RedisPusher;
+use Gos\Bundle\NotificationBundle\Pusher\WebsocketPusher;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -26,18 +28,20 @@ class DefaultController extends Controller
             $notification->setType(Notification::TYPE_INFO);
 
             $notificationCenter = $this->container->get('gos_notification.notification_center');
+            $notificationContext = new NotificationContext();
+            $notificationContext->setPushers([RedisPusher::ALIAS, WebsocketPusher::ALIAS]);
 
             $notificationCenter->push(
                 'notification:user:user2',
                 $notification,
-                PusherIdentity::fromAccount($user)
+                $notificationContext
             );
 
-            $notificationCenter->push(
-                'notification:user:all',
-                $notification,
-                PusherIdentity::fromAccount($user)
-            );
+//            $notificationCenter->push(
+//                'notification:user:all',
+//                $notification,
+//                PusherIdentity::fromAccount($user)
+//            );
 
 //            $notifications = $notificationCenter->fetch('notification:user:user2', 0, 20);
         }

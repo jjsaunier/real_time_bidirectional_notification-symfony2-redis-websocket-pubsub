@@ -5,7 +5,7 @@ namespace Gos\Bundle\NotificationBundle\Context;
 /**
  * @author Johann Saunier <johann_27@hotmail.fr>
  */
-class TransportContext implements \JsonSerializable
+class NotificationContext implements NotificationContextInterface
 {
     /**
      * @var PusherIdentity|null
@@ -13,11 +13,41 @@ class TransportContext implements \JsonSerializable
     protected $pusherIdentity;
 
     /**
+     * @var string[]
+     */
+    protected $pushers;
+
+    /**
      * @param PusherIdentity|null $pusherIdentity
      */
     public function __construct(PusherIdentity $pusherIdentity = null)
     {
         $this->pusherIdentity = $pusherIdentity;
+        $this->pushers = array();
+    }
+
+    /**
+     * @param array $pushers
+     */
+    public function setPushers(Array $pushers)
+    {
+        $this->pushers = $pushers;
+    }
+
+    /**
+     * @param $pusher
+     */
+    public function addPusher($pusher)
+    {
+        $this->pushers[] = $pusher;
+    }
+
+    /**
+     * @return array|\string[]
+     */
+    public function getPushers()
+    {
+        return $this->pushers;
     }
 
     /**
@@ -42,7 +72,8 @@ class TransportContext implements \JsonSerializable
     function jsonSerialize()
     {
         return array(
-            'pusher_identity' => $this->pusherIdentity
+            'pusher_identity' => $this->pusherIdentity,
+            'pushers' => $this->pushers
         );
     }
 }

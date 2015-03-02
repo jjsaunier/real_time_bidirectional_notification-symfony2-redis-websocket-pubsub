@@ -2,9 +2,8 @@
 
 namespace Gos\Bundle\NotificationBundle;
 
-use Gos\Bundle\NotificationBundle\Context\PusherIdentity;
+use Gos\Bundle\NotificationBundle\Context\NotificationContextInterface;
 use Gos\Bundle\NotificationBundle\Model\NotificationInterface;
-use Gos\Bundle\NotificationBundle\Model\TransportNotification;
 use Predis\Client;
 use Psr\Log\LoggerInterface;
 
@@ -47,11 +46,11 @@ class NotificationCenter
     }
 
     /**
-     * @param string                      $channel
+     * @param string                $channel
      * @param NotificationInterface $notification
-     * @param string|null                  $pusherIdentifier.
+     * @param NotificationContextInterface   $context
      */
-    public function push($channel, NotificationInterface $notification, PusherIdentity $pusherIdentity = null)
+    public function push($channel, NotificationInterface $notification, NotificationContextInterface $context)
     {
         if(null !== $this->logger){
             $this->logger->info(sprintf(
@@ -61,10 +60,6 @@ class NotificationCenter
             ), $notification->toArray());
         }
 
-        $wrappedNotification = new TransportNotification();
-        $wrappedNotification->wrap($notification);
-        $wrappedNotification->setPusherIdentity($pusherIdentity);
-
-        $this->redis->publish($channel, json_encode($wrappedNotification));
+        $this->redis->publish($channel, json_encode(array($notification, $context)));
     }
 }
