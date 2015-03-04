@@ -31,7 +31,7 @@ class DefaultController extends Controller
             $notificationContext = new NotificationContext();
             $notificationContext->setPushers([RedisPusher::ALIAS, WebsocketPusher::ALIAS]);
 
-            $notificationCenter->push(
+            $notificationCenter->publish(
                 'notification:user:user2',
                 $notification,
                 $notificationContext

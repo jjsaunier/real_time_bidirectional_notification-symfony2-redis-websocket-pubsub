@@ -126,6 +126,7 @@ gos_notification:
         - @gos_notification.pusher.redis
         - @gos_notification.pusher.websocket
     fetcher: @gos_notification.fetcher.redis
+    publisher: @gos_notification.publisher.redis
     class:
         notification: Gos\Bundle\NotificationBundle\Model\Notification
         notification_context: Gos\Bundle\NotificationBundle\Context\NotificationContext
