@@ -69,11 +69,11 @@ class NotificationContext implements NotificationContextInterface
     /**
      * @return array
      */
-    function jsonSerialize()
+    public function jsonSerialize()
     {
         return array(
             'pusher_identity' => $this->pusherIdentity,
-            'pushers' => $this->pushers
+            'pushers' => $this->pushers,
         );
     }
 }

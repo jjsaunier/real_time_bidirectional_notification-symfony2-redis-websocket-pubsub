@@ -3,63 +3,50 @@
 namespace Gos\Bundle\NotificationBundle;
 
 use Gos\Bundle\NotificationBundle\Context\NotificationContextInterface;
+use Gos\Bundle\NotificationBundle\Fetcher\FetcherInterface;
 use Gos\Bundle\NotificationBundle\Model\NotificationInterface;
-use Predis\Client;
-use Psr\Log\LoggerInterface;
+use Gos\Bundle\NotificationBundle\Publisher\PublisherInterface;
 
 /**
  * @author Johann Saunier <johann_27@hotmail.fr>
  */
-class NotificationCenter
+class NotificationCenter implements NotificationManipulatorInterface
 {
     /**
-     * @var Client
+     * @var PublisherInterface
      */
-    protected $redis;
+    protected $publisher;
 
     /**
-     * @var LoggerInterface|null
+     * @var FetcherInterface
      */
-    protected $logger;
+    protected $fetcher;
 
     /**
-     * @param Client          $redis
-     * @param LoggerInterface $logger
+     * @param PublisherInterface $publisher
+     * @param FetcherInterface   $fetcher
      */
-    public function __construct(Client $redis, LoggerInterface $logger = null)
-    {
-        $this->redis = $redis;
-        $this->logger = $logger;
+    public function __construct(
+        PublisherInterface $publisher,
+        FetcherInterface $fetcher
+    ) {
+        $this->publisher = $publisher;
+        $this->fetcher = $fetcher;
     }
 
     /**
-     * @param string $channel
-     * @param int $start
-     * @param int $end
-     *
-     * @return NotificationInterface[]|array
+     * {@inheritdoc.
      */
     public function fetch($channel, $start, $end)
     {
-        //@TODO: Create fetch feature
-        return array();
+        return $this->fetcher->fetch($channel, $start, $end);
     }
 
     /**
-     * @param string                $channel
-     * @param NotificationInterface $notification
-     * @param NotificationContextInterface   $context
+     * {@inheritdoc.
      */
-    public function push($channel, NotificationInterface $notification, NotificationContextInterface $context)
+    public function publish($channel, NotificationInterface $notification, NotificationContextInterface $context)
     {
-        if(null !== $this->logger){
-            $this->logger->info(sprintf(
-                'push %s into %s',
-                $notification->getTitle(),
-                $channel
-            ), $notification->toArray());
-        }
-
-        $this->redis->publish($channel, json_encode(array($notification, $context)));
+        return $this->publisher->publish($channel, $notification, $context);
     }
 }

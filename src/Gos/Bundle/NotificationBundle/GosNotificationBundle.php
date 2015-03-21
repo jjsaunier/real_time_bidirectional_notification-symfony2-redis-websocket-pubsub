@@ -2,7 +2,6 @@
 
 namespace Gos\Bundle\NotificationBundle;
 
-use Gos\Bundle\NotificationBundle\DependencyInjection\CompilerPass\NotificationConsumerCompilerPass;
 use Gos\Bundle\NotificationBundle\DependencyInjection\CompilerPass\PusherCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

@@ -7,5 +7,8 @@ namespace Gos\Bundle\NotificationBundle\Event;
  */
 final class NotificationEvents
 {
-    const NEW_NOTIFICATION = 'gos_notification.notification.new';
+    const NOTIFICATION_PUBLISHED = 'gos_notification.notification.published';
+    const NOTIFICATION_PUSHED = 'gos_notification.notification.pushed';
+
+    const NOTIFICATION_CONSUMED = 'gos_notification.notification.consumed';
 }

@@ -7,5 +7,4 @@ namespace Gos\Bundle\NotificationBundle\Listener;
  */
 class NotificationListener
 {
-
 }

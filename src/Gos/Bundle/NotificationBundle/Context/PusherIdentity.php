@@ -68,6 +68,6 @@ class PusherIdentity
      */
     public function getIdentity()
     {
-        return $this->type.'#'.$this->identifier;
+        return $this->type . '#' . $this->identifier;
     }
 }

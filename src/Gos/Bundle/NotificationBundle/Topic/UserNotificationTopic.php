@@ -9,8 +9,8 @@ use Ratchet\Wamp\Topic;
 class UserNotificationTopic implements TopicInterface
 {
     /**
-     * @param  ConnectionInterface $connection
-     * @param  Topic               $topic
+     * @param ConnectionInterface $connection
+     * @param Topic               $topic
      */
     public function onSubscribe(ConnectionInterface $connection, Topic $topic)
     {
@@ -18,8 +18,8 @@ class UserNotificationTopic implements TopicInterface
     }
 
     /**
-     * @param  ConnectionInterface $connection
-     * @param  Topic               $topic
+     * @param ConnectionInterface $connection
+     * @param Topic               $topic
      */
     public function onUnSubscribe(ConnectionInterface $connection, Topic $topic)
     {
@@ -27,11 +27,11 @@ class UserNotificationTopic implements TopicInterface
     }
 
     /**
-     * @param  ConnectionInterface $connection
-     * @param  Topic               $topic
-     * @param  string                    $event
-     * @param  array               $exclude
-     * @param  array               $eligible
+     * @param ConnectionInterface $connection
+     * @param Topic               $topic
+     * @param string              $event
+     * @param array               $exclude
+     * @param array               $eligible
      */
     public function onPublish(ConnectionInterface $connection, Topic $topic, $event, array $exclude, array $eligible)
     {

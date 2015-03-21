@@ -1,16 +1,18 @@
 <?php
 
 namespace Gos\Bundle\NotificationBundle\Pusher;
+
 use Gos\Bundle\NotificationBundle\Context\NotificationContextInterface;
+use Gos\Bundle\NotificationBundle\Event\NotificationEvents;
+use Gos\Bundle\NotificationBundle\Event\NotificationPushedEvent;
 use Gos\Bundle\NotificationBundle\Model\Message\MessageInterface;
 use Gos\Bundle\NotificationBundle\Model\NotificationInterface;
 use Predis\Async\Client;
 use React\EventLoop\LoopInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class RedisPusher
- *
- * @package Gos\Bundle\NotificationBundle\Pusher
+ * Class RedisPusher.
  */
 class RedisPusher implements PusherInterface, PusherLoopAwareInterface
 {
@@ -32,13 +34,20 @@ class RedisPusher implements PusherInterface, PusherLoopAwareInterface
     protected $loop;
 
     /**
-     * @param string $serverHost
-     * @param string $serverPort
+     * @var EventDispatcherInterface
      */
-    public function __construct($serverHost, $serverPort)
+    protected $eventDispatcher;
+
+    /**
+     * @param string                   $serverHost
+     * @param string                   $serverPort
+     * @param EventDispatcherInterface $eventDispatcher
+     */
+    public function __construct($serverHost, $serverPort, EventDispatcherInterface $eventDispatcher)
     {
         $this->serverHost = $serverHost;
         $this->serverPort = $serverPort;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -56,10 +65,10 @@ class RedisPusher implements PusherInterface, PusherLoopAwareInterface
      */
     public function push(MessageInterface $message, NotificationInterface $notification, NotificationContextInterface $context)
     {
-        $notifier = new Client('tcp://'.$this->serverHost.':'.$this->serverPort, $this->loop);
+        $notifier = new Client('tcp://' . $this->serverHost . ':' . $this->serverPort, $this->loop);
 
-        $notifier->lpush((string) $message->getChannel(), json_encode($notification), function (){
-            //nothing for today.
+        $notifier->lpush((string) $message->getChannel(), json_encode($notification), function () use ($message, $notification, $context) {
+            $this->eventDispatcher->dispatch(NotificationEvents::NOTIFICATION_PUSHED, new NotificationPushedEvent($message, $notification, $context, $this));
         });
     }
 
@@ -69,7 +78,7 @@ class RedisPusher implements PusherInterface, PusherLoopAwareInterface
     public function getChannelsListened()
     {
         return array(
-            'psubscribe' => array('notification:user:*', 'notification:application:*')
+            'psubscribe' => array('notification:user:*', 'notification:application:*'),
         );
     }
 

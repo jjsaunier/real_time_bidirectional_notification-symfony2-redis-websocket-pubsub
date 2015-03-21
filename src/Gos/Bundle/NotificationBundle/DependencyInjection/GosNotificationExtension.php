@@ -37,16 +37,19 @@ class GosNotificationExtension extends Extension implements PrependExtensionInte
         $container->setParameter('gos_notification.notification_context_class', $configs['class']['notification_context']);
 
         //pusher
-        if(isset($configs['pusher']) && !empty($configs['pusher'])){
+        if (isset($configs['pusher']) && !empty($configs['pusher'])) {
             $pusherRegistryDef = $container->getDefinition('gos_notification.pusher.registry');
 
-            foreach($configs['pusher'] as $pusher){
+            foreach ($configs['pusher'] as $pusher) {
                 $pusherRegistryDef->addMethodCall('addPusher', array(new Reference(ltrim($pusher, '@'))));
             }
         }
 
         //fetcher
         $container->setAlias('gos_notification.fetcher', ltrim($configs['fetcher'], '@'));
+
+        //publisher
+        $container->setAlias('gos_notification.publisher', ltrim($configs['publisher'], '@'));
     }
 
     /**
@@ -65,14 +68,14 @@ class GosNotificationExtension extends Extension implements PrependExtensionInte
                     'notification' => array(
                         'type' => 'stream',
                         'path' => '%kernel.logs_dir%/notification.log',
-                        'channels' => 'notification'
+                        'channels' => 'notification',
                     ),
                     'notification_cli' => array(
                         'type' => 'console',
                         'verbosity_levels' => array(
                             'VERBOSITY_NORMAL' => Logger::INFO,
                         ),
-                        'channels' => 'notification'
+                        'channels' => 'notification',
                     ),
                 ),
             );
@@ -80,6 +83,4 @@ class GosNotificationExtension extends Extension implements PrependExtensionInte
             $container->prependExtensionConfig('monolog', $monologConfig);
         }
     }
-
-
 }

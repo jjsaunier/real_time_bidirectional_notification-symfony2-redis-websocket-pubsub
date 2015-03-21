@@ -3,6 +3,8 @@
 namespace Gos\Bundle\NotificationBundle\Server;
 
 use Gos\Bundle\NotificationBundle\Context\NotificationContextInterface;
+use Gos\Bundle\NotificationBundle\Event\NotificationEvents;
+use Gos\Bundle\NotificationBundle\Event\NotificationPublishedEvent;
 use Gos\Bundle\NotificationBundle\Model\Message\Message;
 use Gos\Bundle\NotificationBundle\Model\Message\PatternMessage;
 use Gos\Bundle\NotificationBundle\Model\NotificationInterface;
@@ -84,20 +86,20 @@ class PubSubServer implements ServerInterface
         $psubscribe = array();
         $subscribe = array();
 
-        foreach($this->pusherRegistry->getPushers() as $pusher){
+        foreach ($this->pusherRegistry->getPushers() as $pusher) {
             $channels = $pusher->getChannelsListened();
 
-            if(isset($channels['subscribe'])){
-                foreach($channels['subscribe'] as $s){
-                    if(!in_array($s, $subscribe)){
+            if (isset($channels['subscribe'])) {
+                foreach ($channels['subscribe'] as $s) {
+                    if (!in_array($s, $subscribe)) {
                         $subscribe[] = $s;
                     }
                 }
             }
 
-            if(isset($channels['psubscribe'])){
-                foreach($channels['psubscribe'] as $ps){
-                    if(!in_array($ps, $psubscribe)){
+            if (isset($channels['psubscribe'])) {
+                foreach ($channels['psubscribe'] as $ps) {
+                    if (!in_array($ps, $psubscribe)) {
                         $psubscribe[] = $ps;
                     }
                 }
@@ -106,14 +108,12 @@ class PubSubServer implements ServerInterface
 
         return array(
             'subscribe' => $subscribe,
-            'psubscribe' => $psubscribe
+            'psubscribe' => $psubscribe,
         );
     }
 
     /**
-     * Launches the server loop
-     *
-     * @return void
+     * Launches the server loop.
      */
     public function launch()
     {
@@ -122,20 +122,20 @@ class PubSubServer implements ServerInterface
         }
 
         $this->loop = Factory::create();
-        $this->client = new Client('tcp://'.$this->getAddress(), $this->loop);
+        $this->client = new Client('tcp://' . $this->getAddress(), $this->loop);
 
-        $this->client->connect(function(){
+        $this->client->connect(function () {
             $subscription = $this->getChannelToListen();
 
             if (null !== $this->logger) {
-                if(!empty($subscription['subscribe'])){
+                if (!empty($subscription['subscribe'])) {
                     $this->logger->info(sprintf(
                         'Listening topics %s',
                         implode(', ', $subscription['subscribe'])
                     ));
                 }
 
-                if(!empty($subscription['psubscribe'])){
+                if (!empty($subscription['psubscribe'])) {
                     $this->logger->info(sprintf(
                         'Listening pattern %s',
                         implode(', ', $subscription['psubscribe'])
@@ -143,22 +143,22 @@ class PubSubServer implements ServerInterface
                 }
             }
 
-            /** @var PubSubContext $pubSubContext */
-            $this->client->pubSub($subscription, function($event){
+            /* @var PubSubContext $pubSubContext */
+            $this->client->pubSub($subscription, function ($event) {
 
-                if($event instanceof ResponseError){
-                    if(null !== $this->logger){
+                if ($event instanceof ResponseError) {
+                    if (null !== $this->logger) {
                         $this->logger->error($event->getMessage());
                     }
 
                     return;
                 }
 
-                if(!in_array($event->kind, array(PubSubContext::MESSAGE, PubSubContext::PMESSAGE))){
+                if (!in_array($event->kind, array(PubSubContext::MESSAGE, PubSubContext::PMESSAGE))) {
                     return;
                 }
 
-                if($event->kind === PubSubContext::MESSAGE ){
+                if ($event->kind === PubSubContext::MESSAGE) {
                     $message = new Message(
                         $event->kind,
                         $event->channel,
@@ -166,7 +166,7 @@ class PubSubServer implements ServerInterface
                     );
                 }
 
-                if($event->kind === PubSubContext::PMESSAGE){
+                if ($event->kind === PubSubContext::PMESSAGE) {
                     $message = new PatternMessage(
                         $event->kind,
                         $event->pattern,
@@ -187,22 +187,24 @@ class PubSubServer implements ServerInterface
                 /** @var NotificationContextInterface $context */
                 $context = $serializer->deserialize(json_encode($contextRaw), $this->notificationContextClass, 'json');
 
-                if(null !== $this->logger){
+                if (null !== $this->logger) {
                     $this->logger->info('process notification');
                 }
 
                 $pushers = $this->pusherRegistry->getPushers($context->getPushers());
 
+                $this->eventDispatcher->dispatch(NotificationEvents::NOTIFICATION_PUBLISHED, new NotificationPublishedEvent($message, $notification, $context));
+
                 /** @var PusherInterface $pusher */
-                foreach($pushers as $pusher){
-                    if($pusher instanceof PusherLoopAwareInterface){
+                foreach ($pushers as $pusher) {
+                    if ($pusher instanceof PusherLoopAwareInterface) {
                         $pusher->setLoop($this->loop);
                     }
 
                     $pusher->push($message, $notification, $context);
                 }
 
-                if(null !== $this->logger){
+                if (null !== $this->logger) {
                     $this->logger->info('notification processed');
                 }
             });
@@ -224,17 +226,17 @@ class PubSubServer implements ServerInterface
     }
 
     /**
-     * Returns a string of the host:port for debugging / display purposes
+     * Returns a string of the host:port for debugging / display purposes.
      *
      * @return string
      */
     public function getAddress()
     {
-        return $this->pubSubConfig['host'].':'.$this->pubSubConfig['port'];
+        return $this->pubSubConfig['host'] . ':' . $this->pubSubConfig['port'];
     }
 
     /**
-     * Returns a string of the name of the server/service for debugging / display purposes
+     * Returns a string of the name of the server/service for debugging / display purposes.
      *
      * @return string
      */

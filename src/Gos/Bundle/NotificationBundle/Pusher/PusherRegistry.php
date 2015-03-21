@@ -3,9 +3,7 @@
 namespace Gos\Bundle\NotificationBundle\Pusher;
 
 /**
- * Class PusherRegistry
- *
- * @package Gos\Bundle\NotificationBundle\Pusher
+ * Class PusherRegistry.
  */
 class PusherRegistry
 {
@@ -34,14 +32,14 @@ class PusherRegistry
      */
     public function getPushers(Array $specificPushers = null)
     {
-        if(null === $specificPushers || empty($specificPushers)){
+        if (null === $specificPushers || empty($specificPushers)) {
             return $this->pushers;
         }
 
         $pushers = array();
 
-        foreach($this->pushers as $pusher){
-            if(in_array($pusher->getAlias(), $specificPushers)){
+        foreach ($this->pushers as $pusher) {
+            if (in_array($pusher->getAlias(), $specificPushers)) {
                 $pushers[] = $pusher;
             }
         }
