@@ -1,14 +1,34 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: johann
- * Date: 08/03/15
- * Time: 15:42
- */
 
 namespace Gos\Bundle\PubSubRouterBundle\Router;
 
+/**
+ * @author Johann Saunier <johann_27@hotmail.fr>
+ */
+class RouterContext
+{
+    /**
+     * @var string
+     */
+    protected $tokenSeparator;
 
-class RouterContext {
+    /**
+     * @return string
+     */
+    public function getTokenSeparator()
+    {
+        return $this->tokenSeparator;
+    }
 
+    /**
+     * @param string $tokenSeparator
+     *
+     * @return $this|RouterContext
+     */
+    public function setTokenSeparator($tokenSeparator)
+    {
+        $this->tokenSeparator = $tokenSeparator;
+
+        return $this;
+    }
 }

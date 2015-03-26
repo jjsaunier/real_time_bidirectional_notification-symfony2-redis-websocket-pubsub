@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Snc\RedisBundle\SncRedisBundle(),
             new GosWebSocketBundle(),
             new GosNotificationBundle(),
+            new \Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle(),
             new DoctrineCacheBundle()
         );
 

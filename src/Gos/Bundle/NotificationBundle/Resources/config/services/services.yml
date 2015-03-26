@@ -9,10 +9,11 @@ services:
         class: Gos\Bundle\NotificationBundle\Server\PubSubServer
         arguments:
             - @event_dispatcher
-            - %gos_notification.notification_class%
-            - %gos_notification.notification_context_class%
+            - @gos_notification.notification.serializer
+            - @gos_notification.notification_context.serializer
             - @gos_notification.pusher.registry
             - %gos_notification.pubsub_server.config%
+            - @gos_pubsub_router.router
             - @?monolog.logger.notification
         tags:
             - { name: gos_web_socket.server }
@@ -31,8 +32,7 @@ services:
     gos_notification.pusher.redis:
         class: Gos\Bundle\NotificationBundle\Pusher\RedisPusher
         arguments:
-            - 127.0.0.1
-            - 6379
+            - @snc_redis.notification
             - @event_dispatcher
 #        tags:
 #            - { name: gos_notification.pusher }
@@ -45,10 +45,34 @@ services:
 #        tags:
 #            - { name: gos_notification.pusher }
 
+    gos_notification.notification.procedure:
+        class: Gos\Bundle\NotificationBundle\Procedure\NotificationProcedure
+        arguments:
+            - @gos_notification.notification_center
+            - @gos_web_socket.client_storage
+        tags:
+            - { name: gos_web_socket.rpc }
+
     gos_notification.fetcher.redis:
         class: Gos\Bundle\NotificationBundle\Fetcher\RedisFetcher
+        arguments:
+            - @snc_redis.notification
+            - @gos_notification.notification.serializer
 
     gos_notification.publisher.redis:
         class: Gos\Bundle\NotificationBundle\Publisher\RedisPublisher
         arguments:
             - @snc_redis.notification
+
+    gos_notification.notification.serializer:
+        class: Gos\Bundle\NotificationBundle\Serializer\NotificationSerializer
+        arguments:
+            - %gos_notification.notification_class%
+
+    gos_notification.notification_context.serializer:
+        class: Gos\Bundle\NotificationBundle\Serializer\NotificationContextSerializer
+        arguments:
+            - %gos_notification.notification_context_class%
+
+    gos_notification.loader.resolver:
+        class: Gos\Bundle\NotificationBundle\Loader\LoaderResolver

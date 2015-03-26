@@ -2,41 +2,89 @@
 
 namespace Gos\Bundle\PubSubRouterBundle\Loader;
 
-use Symfony\Component\Config\Loader\Loader;
-use Symfony\Component\Routing\RouteCollection;
+use Gos\Bundle\PubSubRouterBundle\Router\Route;
+use Gos\Bundle\PubSubRouterBundle\Router\RouteCollection;
+use Symfony\Component\Yaml\Parser;
 
-class RoutingLoader extends Loader
+/**
+ * @author Johann Saunier <johann_27@hotmail.fr>
+ */
+class YamlFileLoader extends AbstractRouteLoader
 {
     /**
-     * @var string[]
+     * @var array
      */
-    protected $resources;
+    private static $availableKeys = array(
+        'channel', 'handler', 'requirements',
+    );
+
+    /**
+     * @var Parser
+     */
+    private $yamlParser;
 
     /**
      * @param string $resource
-     * @param null  $type
+     * @param null   $type
      *
      * @return RouteCollection
      */
     public function load($resource, $type = null)
     {
-        $collection = new RouteCollection();
+        $resource = parent::load($resource, $type);
 
-        $importedRoutes = $this->import($resource, $type);
+        if (null === $this->yamlParser) {
+            $this->yamlParser = new Parser();
+        }
 
-        $collection->addCollection($importedRoutes);
+        $config = $this->yamlParser->parse(file_get_contents($resource));
 
-        return $collection;
+        $routeCollection = new RouteCollection();
+
+        if (!is_array($config)) {
+            throw new \InvalidArgumentException('Invalid configuration');
+        }
+
+        foreach ($config as $routeName => $routeConfig) {
+            $this->validate($routeConfig, $routeName, $resource);
+
+            $handler = $routeConfig['handler'];
+
+            $routeCollection->add($routeName, new Route(
+                $routeConfig['channel'],
+                $handler['callback'],
+                isset($handler['args']) ? $handler['args'] : [],
+                $routeConfig['requirements']
+            ));
+        }
+
+        return $routeCollection;
     }
 
     /**
-     * @param mixed $resource
-     * @param null  $type
-     *
-     * @return bool
+     * @param array  $config
+     * @param string $name
+     * @param string $path
+     */
+    protected function validate($config, $name, $path)
+    {
+        if (!is_array($config)) {
+            throw new \InvalidArgumentException(sprintf('The definition of "%s" in "%s" must be a YAML array.', $name, $path));
+        }
+
+        if ($extraKeys = array_diff(array_keys($config), self::$availableKeys)) {
+            throw new \InvalidArgumentException(sprintf(
+                'The routing file "%s" contains unsupported keys for "%s": "%s". Expected one of: "%s".',
+                $path, $name, implode('", "', $extraKeys), implode('", "', self::$availableKeys)
+            ));
+        }
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function supports($resource, $type = null)
     {
-        return true;
+        return is_string($resource) && 'yml' === pathinfo($resource, PATHINFO_EXTENSION) && (!$type || 'yaml' === $type);
     }
 }

@@ -72,6 +72,22 @@
                         });
                     });
 
+                    session.call("notification/get_notification",
+                            {
+                                'channel': 'notification/user/user2',
+                                'uuid': 'f837f7e1-4913-4d20-a9f5-f4c449297ebd'
+                            }).then(  //using "then" promises.
+                            function(result) //the function for a valid result
+                            {
+                                console.log("RPC Valid!", result);
+                            },
+
+                            function(error, desc) // the function to handle an error
+                            {
+                                console.log("RPC Error", error, desc);
+                            }
+                    );
+
                     {% if user is not null %}
                         session.subscribe('notification/user/all', function(topic, payload){
                             console.log('notification/user/all');

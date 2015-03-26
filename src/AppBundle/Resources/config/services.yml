@@ -1,5 +1,10 @@
 services:
-    gos_web_scocket.client_storage.driver.predis:
+    gos_web_socket.client_storage.driver.predis:
         class: Gos\Bundle\WebSocketBundle\Client\Driver\PredisDriver
         arguments:
             - @snc_redis.cache
+
+    gos_web_socket.user.loader:
+        class: AppBundle\Controller\Loader\UserLoader
+        tags:
+            - { name: gos_notification.loader }

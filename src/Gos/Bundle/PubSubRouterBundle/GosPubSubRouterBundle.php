@@ -2,6 +2,7 @@
 
 namespace Gos\Bundle\PubSubRouterBundle;
 
+use Gos\Bundle\PubSubRouterBundle\DependencyInjection\GosPubSubRouterExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -9,4 +10,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class GosPubSubRouterBundle extends Bundle
 {
+    public function getContainerExtension()
+    {
+        return new GosPubSubRouterExtension();
+    }
 }

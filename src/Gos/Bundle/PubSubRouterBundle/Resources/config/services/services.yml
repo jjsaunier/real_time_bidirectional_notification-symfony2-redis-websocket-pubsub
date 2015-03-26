@@ -1,66 +1,15 @@
 services:
-    gos_notification.notification_center:
-        class: Gos\Bundle\NotificationBundle\NotificationCenter
-        arguments:
-            - @gos_notification.publisher
-            - @gos_notification.fetcher
+    gos_pubsub_router.router:
+        class: Gos\Bundle\PubSubRouterBundle\Router\Router
 
-    gos_notification.notification.pubsub.server:
-        class: Gos\Bundle\NotificationBundle\Server\PubSubServer
+    gos_pubsub_router.yaml.loader:
+        class: Gos\Bundle\PubSubRouterBundle\Loader\YamlFileLoader
         arguments:
-            - @event_dispatcher
-            - @gos_notification.notification.serializer
-            - @gos_notification.notification_context.serializer
-            - @gos_notification.pusher.registry
-            - %gos_notification.pubsub_server.config%
-            - @?monolog.logger.notification
+            - @file_locator
+
+    gos_pubsub_router.debug.command:
+        class: Gos\Bundle\PubSubRouterBundle\Command\DebugRouterCommand
+        arguments:
+            - @gos_pubsub_router.router
         tags:
-            - { name: gos_web_socket.server }
-
-    gos_notification.notification.listener:
-        class: Gos\Bundle\NotificationBundle\Listener\NotificationListener
-
-    gos_notification.user.topic:
-        class: Gos\Bundle\NotificationBundle\Topic\UserNotificationTopic
-        tags:
-            - { name: gos_web_socket.topic }
-
-    gos_notification.pusher.registry:
-        class: Gos\Bundle\NotificationBundle\Pusher\PusherRegistry
-
-    gos_notification.pusher.redis:
-        class: Gos\Bundle\NotificationBundle\Pusher\RedisPusher
-        arguments:
-            - @snc_redis.notification
-            - @event_dispatcher
-#        tags:
-#            - { name: gos_notification.pusher }
-
-    gos_notification.pusher.websocket:
-        class: Gos\Bundle\NotificationBundle\Pusher\WebsocketPusher
-        arguments:
-            - %web_socket_server.host%
-            - %web_socket_server.port%
-#        tags:
-#            - { name: gos_notification.pusher }
-
-    gos_notification.fetcher.redis:
-        class: Gos\Bundle\NotificationBundle\Fetcher\RedisFetcher
-        arguments:
-            - @snc_redis.notification
-            - @gos_notification.notification.serializer
-
-    gos_notification.publisher.redis:
-        class: Gos\Bundle\NotificationBundle\Publisher\RedisPublisher
-        arguments:
-            - @snc_redis.notification
-
-    gos_notification.notification.serializer:
-        class: Gos\Bundle\NotificationBundle\Serializer\NotificationSerializer
-        arguments:
-            - %gos_notification.notification_class%
-
-    gos_notification.notification_context.serializer:
-        class: Gos\Bundle\NotificationBundle\Serializer\NotificationContextSerializer
-        arguments:
-            - %gos_notification.notification_context_class%
+            - { name: console.command }

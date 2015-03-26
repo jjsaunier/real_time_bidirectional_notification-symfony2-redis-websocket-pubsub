@@ -92,6 +92,7 @@ snc_redis:
             dsn: redis://127.0.0.1/1
             logging: %kernel.debug%
             options:
+                profile: 2.8
                 read_write_timeout: 0
         cache:
             type: predis
@@ -99,8 +100,7 @@ snc_redis:
             dsn: redis://127.0.0.1/2
             logging: %kernel.debug%
             options:
-                profile: 2.8
-                connection_timeout: 10
+                connection_timeout: 0
                 read_write_timeout: 30
 
 # Gos Web Socket Bundle
@@ -109,13 +109,15 @@ gos_web_socket:
         firewall: secured_area
         session_handler: @session.handler.pdo
         storage:
-            driver: @gos_web_scocket.client_storage.driver.predis
-#            decorator: @gos_web_socket.client_storage.doctrine.decorator
+            driver: @gos_web_socket.client_storage.driver.predis
     shared_config: true
     server:
         host: notification.dev
         port: 1337
         origin_check: true
+#        router:
+#            resources:
+#                - @GosNotificationBundle/Resources/config/pubsub/notification.yml
     origins:
         - www.notification.dev
         - notification.dev
@@ -132,8 +134,16 @@ gos_notification:
         notification_context: Gos\Bundle\NotificationBundle\Context\NotificationContext
     pubsub_server:
         type: redis #today tha'ts change nothing, only redis is available
-        host: 127.0.0.1
-        port: 6379
+        config:
+            host: 127.0.0.1
+            port: 6379
+
+#Gos PubSub Router
+gos_pubsub_router:
+    resources:
+        - @GosNotificationBundle/Resources/config/pubsub/notification.yml
+
+
 
 
 

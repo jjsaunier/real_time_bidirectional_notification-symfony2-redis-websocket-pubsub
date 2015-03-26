@@ -1,6 +1,6 @@
 <?php
 
-namespace Gos\Bundle\NotificationBundle\DependencyInjection;
+namespace Gos\Bundle\PubSubRouterBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -16,40 +16,14 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('gos_notification');
+        $rootNode = $treeBuilder->root('gos_pubsub_router');
 
         $rootNode->children()
-            ->arrayNode('pusher')
-                ->prototype('scalar')
+            ->arrayNode('resources')
+                ->prototype('scalar')->end()
                 ->end()
-            ->end()
-            ->scalarNode('fetcher')
-                ->cannotBeEmpty()
-                ->isRequired()
-            ->end()
-            ->scalarNode('publisher')
-                ->cannotBeEmpty()
-                ->isRequired()
-            ->end()
-            ->arrayNode('class')
-                ->addDefaultsIfNotSet()
-                ->children()
-                    ->scalarNode('notification')
-                        ->defaultValue('Gos\Bundle\NotificationBundle\Model\Notification')
-                    ->end()
-                    ->scalarNode('notification_context')
-                        ->defaultValue('Gos\Bundle\NotificationBundle\Context\NotificationContext')
-                    ->end()
-                ->end()
-            ->end()
-            ->arrayNode('pubsub_server')
-                ->children()
-                    ->scalarNode('type')->end()
-                    ->arrayNode('config')
-                        ->prototype('scalar')
-                        ->end()
-                    ->end()
-                ->end()
+            ->arrayNode('loaders')
+                ->prototype('scalar')->end()
             ->end()
         ->end();
 
