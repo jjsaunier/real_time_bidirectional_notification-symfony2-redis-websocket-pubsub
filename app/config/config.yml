@@ -32,7 +32,6 @@ parameters:
         db_time_col: session_time
         lock_mode: 0
 
-
 services:
     pdo:
         class: PDO
@@ -115,9 +114,10 @@ gos_web_socket:
         host: notification.dev
         port: 1337
         origin_check: true
-#        router:
-#            resources:
-#                - @GosNotificationBundle/Resources/config/pubsub/notification.yml
+        router:
+            resources:
+                - @GosNotificationBundle/Resources/config/pubsub/websocket/notification.yml
+                - @GosNotificationBundle/Resources/config/pubsub/websocket/notification_rpc.yml
     origins:
         - www.notification.dev
         - notification.dev
@@ -140,10 +140,14 @@ gos_notification:
 
 #Gos PubSub Router
 gos_pubsub_router:
-    resources:
-        - @GosNotificationBundle/Resources/config/pubsub/notification.yml
-
-
-
-
-
+    routers:
+#        websocket:
+#            context:
+#                tokenSeparator: '/'
+#            resources:
+#                - @GosNotificationBundle/Resources/config/pubsub/websocket/notification.yml
+        redis:
+            context:
+                tokenSeparator: ':'
+            resources:
+                - @GosNotificationBundle/Resources/config/pubsub/redis/notification.yml

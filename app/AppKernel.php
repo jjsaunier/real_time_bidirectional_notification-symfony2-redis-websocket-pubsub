@@ -21,10 +21,10 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
 
+            new \Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle(),
             new Snc\RedisBundle\SncRedisBundle(),
             new GosWebSocketBundle(),
             new GosNotificationBundle(),
-            new \Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle(),
             new DoctrineCacheBundle()
         );
 
