@@ -6,8 +6,10 @@ use Gos\Bundle\NotificationBundle\Context\NotificationContext;
 use Gos\Bundle\NotificationBundle\Model\Notification;
 use Gos\Bundle\NotificationBundle\Pusher\RedisPusher;
 use Gos\Bundle\NotificationBundle\Pusher\WebsocketPusher;
+use Gos\Bundle\PubSubRouterBundle\Generator\GeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Routing\RouterInterface;
 
 class DefaultController extends Controller
 {
@@ -29,25 +31,22 @@ class DefaultController extends Controller
 
             $notificationCenter = $this->container->get('gos_notification.notification_center');
 
-            $notificationContext = new NotificationContext();
-            $notificationContext->setPushers([RedisPusher::ALIAS, WebsocketPusher::ALIAS]);
-
             $notificationCenter->publish(
-                'notification:user:user2',
-                $notification,
-                $notificationContext
+                'user_notification',
+                ['username' => 'user2'],
+                $notification
             );
 
             $notificationCenter->publish(
-                'notification:user:all',
-                $notification,
-                $notificationContext
+                'user_notification',
+                ['username' => 'all'],
+                $notification
             );
 
-            $notificationCenter->count('notification:user:user2');
+            $notificationCenter->count('user_notification', ['username' => 'user2']);
 
-//            $notification = $notificationCenter->getNotification('notification:user:user2', '3d226551-b67e-4bc0-9885-6925498fe658');
-//            $notificationCenter->markAsViewed('notification:user:user2', $notification);
+            $notification = $notificationCenter->getNotification('user_notification', ['username' => 'user2'], '3d226551-b67e-4bc0-9885-6925498fe658');
+            $notificationCenter->markAsViewed('user_notification', ['username' => 'user2'], $notification);
         }
 
         return $this->render('AppBundle:App:index.html.twig', [

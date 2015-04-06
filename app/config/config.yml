@@ -113,7 +113,7 @@ gos_web_socket:
     server:
         host: notification.dev
         port: 1337
-        origin_check: true
+        origin_check: false
         router:
             resources:
                 - @GosNotificationBundle/Resources/config/pubsub/websocket/notification.yml
