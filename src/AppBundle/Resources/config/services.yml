@@ -4,7 +4,8 @@ services:
         arguments:
             - @snc_redis.cache
 
-    gos_web_socket.user.loader:
-        class: AppBundle\Controller\Loader\UserLoader
-        tags:
-            - { name: gos_notification.loader }
+    app.user.notification.processor:
+        class: AppBundle\Notification\Processor\UserProcessor
+
+    app.application.notification.processor:
+        class: AppBundle\Notification\Processor\ApplicationProcessor

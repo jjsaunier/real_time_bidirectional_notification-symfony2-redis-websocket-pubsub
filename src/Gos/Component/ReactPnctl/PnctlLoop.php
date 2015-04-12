@@ -6,7 +6,7 @@ class PnctlLoop
 {
     /**
      * Constructor. Registers a periodicTimer to call
-     * the installed signal handlers
+     * the installed signal handlers.
      *
      * @param \React\EventLoop\LoopInterface $loop     Event Loop
      * @param float                          $interval Interval in which new signals should be read
@@ -17,7 +17,7 @@ class PnctlLoop
     }
 
     /**
-     * Registers a new signal handler
+     * Registers a new signal handler.
      *
      * @param int      $signo    The signal number
      * @param callable $listener The listener
@@ -29,7 +29,7 @@ class PnctlLoop
     }
 
     /**
-     * Call signal handlers for pending signals
+     * Call signal handlers for pending signals.
      */
     public function __invoke()
     {

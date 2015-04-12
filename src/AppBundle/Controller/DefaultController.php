@@ -2,14 +2,9 @@
 
 namespace AppBundle\Controller;
 
-use Gos\Bundle\NotificationBundle\Context\NotificationContext;
 use Gos\Bundle\NotificationBundle\Model\Notification;
-use Gos\Bundle\NotificationBundle\Pusher\RedisPusher;
-use Gos\Bundle\NotificationBundle\Pusher\WebsocketPusher;
-use Gos\Bundle\PubSubRouterBundle\Generator\GeneratorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Routing\RouterInterface;
 
 class DefaultController extends Controller
 {
@@ -34,6 +29,12 @@ class DefaultController extends Controller
             $notificationCenter->publish(
                 'user_notification',
                 ['username' => 'user2'],
+                $notification
+            );
+
+            $notificationCenter->publish(
+                'user_application_notification',
+                ['username' => '*', 'application' => '*'],
                 $notification
             );
 

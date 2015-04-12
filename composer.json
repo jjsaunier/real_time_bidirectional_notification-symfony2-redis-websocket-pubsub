@@ -22,9 +22,8 @@
         "snc/redis-bundle": "1.1.x-dev",
         "predis/predis": "0.8.x-dev",
         "predis/predis-async": "0.2.*",
-        "gos/web-socket-bundle": "~0.1@dev",
-        "doctrine/doctrine-cache-bundle": "~1.0",
-        "gos/websocket-client": "dev-master@dev"
+        "gos/web-socket-bundle": "~1.0",
+        "doctrine/doctrine-cache-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

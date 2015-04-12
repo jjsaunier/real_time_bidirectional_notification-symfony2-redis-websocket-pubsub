@@ -1,137 +1,426 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block stylesheets %}
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.min.css" rel="stylesheet" />
+    <style>
+        body{
+            background-color: #dedede;
+        }
+        #notification_li{position:relative}
+        #notificationContainer {
+            background-color: #fff;
+            border: 1px solid rgba(100, 100, 100, .4);
+            -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+            overflow: visible;
+            position: absolute;
+            top: 51px;
+            left: -12px;
+            width: 400px;
+            z-index: 999999999;
+        }
+        #notificationContainer:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            color: transparent;
+            border: 10px solid black;
+            border-color: transparent transparent white;
+            margin-top: -20px;
+            margin-left: 17px;
+        }
+        #notificationTitle {
+            z-index: 1000;
+            font-weight: bold;
+            padding: 8px;
+            font-size: 13px;
+            background-color: #ffffff;
+            width: 384px;
+            border-bottom: 1px solid #dddddd;
+        }
+        #notificationsBody {
+            padding: 33px 0px 0px 0px !important;
+            min-height:300px;
+        }
+        #notificationFooter {
+            background-color: #e9eaed;
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+            font-size: 12px;
+            border-top: 1px solid #dddddd;
+        }
+        #notification_count {
+            padding: 3px 7px 3px 7px;
+            background: #cc0000;
+            color: #ffffff;
+            font-weight: bold;
+            margin-left: 77px;
+            border-radius: 9px;
+            position: absolute;
+            margin-top: -11px;
+            font-size: 11px;
+        }
+
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+
+        #no-theme_icon{
+            color: #fff;
+            font-size: 27px;
+            top: 10px;
+            position: absolute;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
+
+
+
+    {#<div ng-app="gosNotification">#}
+        {#<div class="gos-notification-container">#}
+            {#<ul class="gos-notification-ul">#}
+                {#<li class="gos-notification-li">#}
+
+                {#</li>#}
+            {#</ul>#}
+        {#</div>#}
+    {#</div>#}
+
+    {#<br>#}
+    {#<br>#}
+    {#<br>#}
+
+    {#<div ng-app="main">#}
+        {#<div ng-controller="myController" ng-init="init()">#}
+            {#Homepage.#}
+
+            {#<input type="text" ng-model="message">#}
+            {#<input type="submit" ng-click="send(message)">#}
+
+            {#<toaster-container></toaster-container>#}
+            {#<button ng-click="pop()">Show a notification</button>#}
+        {#</div>#}
+    {#</div>#}
+
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Link</a></li>
+                    <li>
+
+                        <div ng-app="notificationApp">
+                            <div ng-controller="toggleCtrl">
+                                <a href="#" class="gos-notification-trigger" ng-click="toggleNotification()">
+                                    <span id="notification_count">3</span>
+                                    <i class="glyphicon glyphicon-globe" id="no-theme_icon"> </i>
+                                </a>
+                            </div>
+
+                            <div ng-controller="boardCtrl" ng-init="init('ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}')">
+                                <div ng-cloak ng-show="display == true"  id="notificationContainer">
+                                    <div id="notificationTitle">Notifications</div>
+                                    <div id="notificationsBody" class="notifications">
+                                        <ul ng-repeat="notification in notifications">
+                                            <li class="list-unstyled">[[ notification.content ]]</li>
+                                        </ul>
+                                    </div>
+                                    <div id="notificationFooter"><a href="#">See All</a></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
     {{ render(controller('AppBundle:Security:login')) }}
-
-    <div ng-app="main">
-        <div ng-controller="myController" ng-init="init()">
-            Homepage.
-
-            <input type="text" ng-model="message">
-            <input type="submit" ng-click="send(message)">
-
-            <toaster-container></toaster-container>
-            <button ng-click="pop()">Show a notification</button>
-        </div>
-    </div>
-
-    {{ include('@App/App/notification.html.twig') }}
 {% endblock %}
 
 {% block javascripts %}
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="{{ asset('js/angular.js') }}" ></script>
     <script src="{{ asset('js/angular-animate.min.js') }}" ></script>
     <script src="{{ asset('js/angular-touch.js') }}" ></script>
     <script src="{{ asset('js/toaster.js') }}"></script>
     {{ ws_client() }}
+
     <script>
-        var _WS_URI = "ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}";
-        var ws = WS.connect(_WS_URI);
+//        $(document).ready(function()
+//        {
+//            $(".gos-notification-trigger").click(function()
+//            {
+//                $("#notificationContainer").fadeToggle(300);
+//                $("#notification_count").fadeOut("slow");
+//                return false;
+//            });
+//
+////Document Click hiding the popup
+//            $(document).click(function()
+//            {
+//                $("#notificationContainer").hide();
+//            });
+//
+////Popup on click
+//            $("#notificationContainer").click(function()
+//            {
+//                return false;
+//            });
+//
+//        });
 
-        var app = angular.module('main', ['toaster']);
+        var notificationApp = angular.module('notificationApp', ['toaster']);
 
-        app.config(['$interpolateProvider', function($interpolateProvider) {
+        notificationApp.config(['$interpolateProvider', function($interpolateProvider, $rootScope) {
             $interpolateProvider.startSymbol('[[').endSymbol(']]');
         }]);
 
-        app.config(['$sceProvider', '$httpProvider', function($sceProvider, $httpProvider) {
+        notificationApp.config(['$sceProvider', '$httpProvider', function($sceProvider, $httpProvider) {
             $sceProvider.enabled(false);
             $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
         }]);
 
-        app.controller('myController', function($scope, toaster, $window) {
-            {% if user is not null %}
-                $scope.topic = "notification/user/{{ user.username }}";
-            {% else %}
-                $scope.topic = "notification/user/anon";
-            {% endif %}
-            $scope.message = 'hello world';
-            console.log($scope.topic);
-            $scope.init = function(){
-                ws.on("socket/connect", function(session){
-                    session.subscribe($scope.topic, function(topic, payload){
-                        console.log($scope.topic);
+        notificationApp.service('notificationCenter', function($rootScope){
+            this.websocketURI = null;
+            this.websocket = null;
+            this.notificationStack = [];
 
-                        $scope.$apply(function(){
-                            console.log(payload);
+            this.notificationCallback = function(topic, payload){
 
-                            //Object {
-                            // uuid: "7fd83972-db9e-4817-bccc-cf71296be762",
-                            // type: "info",
-                            // icon: null,
-                            // viewed_at: null,
-                            // created_at: "2015-02-28T14:24:24+01:00"…}
-                            // content: "Hello world"created_at: "2015-02-28T14:24:24+01:00"
-                            // icon: null
-                            toaster.pop(payload.type, payload.title, payload.content);
-                        });
-                    });
+                //Send event to notify other service that receive a new notification
+                $rootScope.$broadcast('notification:new', {
+                    topic: topic,
+                    payload: payload
+                });
+            };
 
-                    session.call("notification/get_notification",
-                            {
-                                'channel': 'notification/user/user2',
-                                'uuid': 'f837f7e1-4913-4d20-a9f5-f4c449297ebd'
-                            }).then(  //using "then" promises.
-                            function(result) //the function for a valid result
-                            {
-                                console.log("RPC Valid!", result);
-                            },
+            this.fetch = function(session, route, start, end, successCb){
+                var _this = this;
+                start = start || 1;
+                end = end || 15;
 
-                            function(error, desc) // the function to handle an error
-                            {
-                                console.log("RPC Error", error, desc);
-                            }
-                    );
+                session.call('notification/fetch', {
+                    start: start,
+                    end: end,
+                    route: route
+                }).then(successCb, function(error) {
+                    console.log(error);
+                });
+            }
+        });
 
-                    {% if user is not null %}
-                        session.subscribe('notification/user/all', function(topic, payload){
-                            console.log('notification/user/all');
-                            $scope.$apply(function(){
-                                console.log(payload);
+        notificationApp.service('websocket', function($rootScope){
+            this.websocket = null;
+            this.connected = false;
+            this.session = null;
 
-                                //Object {
-                                // uuid: "7fd83972-db9e-4817-bccc-cf71296be762",
-                                // type: "info",
-                                // icon: null,
-                                // viewed_at: null,
-                                // created_at: "2015-02-28T14:24:24+01:00"…}
-                                // content: "Hello world"created_at: "2015-02-28T14:24:24+01:00"
-                                // icon: null
-                                toaster.pop(payload.type, payload.title, payload.content);
-                            });
-                        });
-                    {% endif %}
+            this.connect = function(socketURI){
+                var _this = this;
 
-                    $scope.$on('publish', function(event, message){
-                        session.publish($scope.topic, message);
-                    });
+                this.websocket = WS.connect(socketURI);
 
-                    $window.onbeforeunload = function() {
-                        session.unsubscribe($scope.topic);
-                    };
+                this.websocket.on('socket/connect', function(session){
+                    _this.connected = true;
+                    _this.session = session;
+                    console.log('connected to ' + socketURI);
+                    $rootScope.$broadcast('ws:connect', session);
                 });
 
-                ws.on("socket/disconnect", function(error){
+                $rootScope.$on('socket/disconnect', function(event, error){
                     console.log("Disconnected for " + error.reason + " with code " + error.code);
                 });
-            };
 
-            $scope.send = function(message){
-                $scope.$emit('publish', {
-                    message: message,
-                    type: "success",
-                    title: "websocket"
+                this.websocket.on('socket/disconnect', function(error){
+                    _this.connected = false;
+                    _this.session = null;
+                    $rootScope.$broadcast('ws:disconnect', error);
                 });
             };
 
-            $scope.pop = function(){
-                toaster.pop('success', "title", "text");
+            this.isConnected = function(){
+                return this.connected;
+            }
+        });
+
+        notificationApp.controller('toggleCtrl', function($scope, $rootScope){
+            $scope.open = false;
+
+            $scope.toggleNotification = function(){
+                $scope.open = !$scope.open;
+                $rootScope.$broadcast('board:display', $scope.open);
+            }
+        });
+
+        notificationApp.controller('boardCtrl', function($rootScope, $scope, websocket, notificationCenter){
+            $scope.display = false;
+            $scope.notifications = [];
+
+            $scope.init = function(socketURI){
+                websocket.connect(socketURI);
             };
+
+            $scope.$on('board:display', function(event, arg){
+                $scope.display = arg;
+
+                if(!$scope.display){
+                    return;
+                }
+
+                if(websocket.isConnected()){
+                    var route = {
+                        name: 'user_notification',
+                        parameters: { username: 'user2'}
+                    };
+
+                    notificationCenter.fetch(websocket.session, route, 1, 15, function(payload){
+                        $scope.$apply(function(){
+                            $scope.notifications = payload.result;
+                        });
+                    });
+                }
+
+                $rootScope.$on('ws:connect', function(event, session){
+                    console.log('here');
+                    $scope.notifications = notificationCenter.fetch(session, ['notification/user/user2'], 1, 15, function(a){
+                        console.log(a);
+                    });
+                });
+
+            });
+
+            $rootScope.$on('notification:new', function(event, args){
+                console.log(args.payload);
+            });
         });
     </script>
+
+    {#<script>#}
+        {#var _WS_URI = "ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}";#}
+        {#var ws = WS.connect(_WS_URI);#}
+
+        {#var app = angular.module('main', ['toaster']);#}
+
+        {#app.config(['$interpolateProvider', function($interpolateProvider) {#}
+            {#$interpolateProvider.startSymbol('[[').endSymbol(']]');#}
+        {#}]);#}
+
+        {#app.config(['$sceProvider', '$httpProvider', function($sceProvider, $httpProvider) {#}
+            {#$sceProvider.enabled(false);#}
+            {#$httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';#}
+        {#}]);#}
+
+        {#app.controller('myController', function($scope, toaster, $window) {#}
+            {#{% if user is not null %}#}
+                {#$scope.topic = "notification/user/{{ user.username }}";#}
+            {#{% else %}#}
+                {#$scope.topic = "notification/user/anon";#}
+            {#{% endif %}#}
+            {#$scope.message = 'hello world';#}
+            {#console.log($scope.topic);#}
+            {#$scope.init = function(){#}
+                {#ws.on("socket/connect", function(session){#}
+                    {#session.subscribe($scope.topic, function(topic, payload){#}
+                        {#console.log($scope.topic);#}
+
+                        {#$scope.$apply(function(){#}
+                            {#console.log(payload);#}
+
+                            {#//Object {#}
+                            {#// uuid: "7fd83972-db9e-4817-bccc-cf71296be762",#}
+                            {#// type: "info",#}
+                            {#// icon: null,#}
+                            {#// viewed_at: null,#}
+                            {#// created_at: "2015-02-28T14:24:24+01:00"…}#}
+                            {#// content: "Hello world"created_at: "2015-02-28T14:24:24+01:00"#}
+                            {#// icon: null#}
+                            {#toaster.pop(payload.type, payload.title, payload.content);#}
+                        {#});#}
+                    {#});#}
+
+                    {#session.call("notification/get_notification",#}
+                            {#{#}
+                                {#'channel': 'notification/user/user2',#}
+                                {#'uuid': 'f837f7e1-4913-4d20-a9f5-f4c449297ebd'#}
+                            {#}).then(  //using "then" promises.#}
+                            {#function(result) //the function for a valid result#}
+                            {#{#}
+                                {#console.log("RPC Valid!", result);#}
+                            {#},#}
+
+                            {#function(error, desc) // the function to handle an error#}
+                            {#{#}
+                                {#console.log("RPC Error", error, desc);#}
+                            {#}#}
+                    {#);#}
+
+                    {#{% if user is not null %}#}
+                        {#session.subscribe('notification/user/all', function(topic, payload){#}
+                            {#console.log('notification/user/all');#}
+                            {#$scope.$apply(function(){#}
+                                {#console.log(payload);#}
+
+                                {#//Object {#}
+                                {#// uuid: "7fd83972-db9e-4817-bccc-cf71296be762",#}
+                                {#// type: "info",#}
+                                {#// icon: null,#}
+                                {#// viewed_at: null,#}
+                                {#// created_at: "2015-02-28T14:24:24+01:00"…}#}
+                                {#// content: "Hello world"created_at: "2015-02-28T14:24:24+01:00"#}
+                                {#// icon: null#}
+                                {#toaster.pop(payload.type, payload.title, payload.content);#}
+                            {#});#}
+                        {#});#}
+                    {#{% endif %}#}
+
+                    {#$scope.$on('publish', function(event, message){#}
+                        {#session.publish($scope.topic, message);#}
+                    {#});#}
+
+                    {#$window.onbeforeunload = function() {#}
+                        {#session.unsubscribe($scope.topic);#}
+                    {#};#}
+                {#});#}
+
+                {#ws.on("socket/disconnect", function(error){#}
+                    {#console.log("Disconnected for " + error.reason + " with code " + error.code);#}
+                {#});#}
+            {#};#}
+
+            {#$scope.send = function(message){#}
+                {#$scope.$emit('publish', {#}
+                    {#message: message,#}
+                    {#type: "success",#}
+                    {#title: "websocket"#}
+                {#});#}
+            {#};#}
+
+            {#$scope.pop = function(){#}
+                {#toaster.pop('success', "title", "text");#}
+            {#};#}
+        {#});#}
+    {#</script>#}
 {% endblock %}
