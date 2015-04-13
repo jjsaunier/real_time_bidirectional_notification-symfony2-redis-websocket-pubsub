@@ -10,3 +10,5 @@
 /vendor/
 /bin/
 /composer.phar
+
+src/Gos/Bundle/NotificationBundle/Resources/public/js/notification/node_modules

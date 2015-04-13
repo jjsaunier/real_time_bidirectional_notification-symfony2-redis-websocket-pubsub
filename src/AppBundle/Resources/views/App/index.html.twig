@@ -141,7 +141,11 @@
                                     <div id="notificationTitle">Notifications</div>
                                     <div id="notificationsBody" class="notifications">
                                         <ul ng-repeat="notification in notifications">
-                                            <li class="list-unstyled">[[ notification.content ]]</li>
+                                            <li class="list-unstyled">
+                                                <h3 class="notification-title">[[ notification.title ]] <span>[[ notification.created_at | date ]]</span></h3>
+
+                                                [[ notification.content ]]
+                                            </li>
                                         </ul>
                                     </div>
                                     <div id="notificationFooter"><a href="#">See All</a></div>
@@ -162,161 +166,26 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="{{ asset('js/angular.js') }}" ></script>
-    <script src="{{ asset('js/angular-animate.min.js') }}" ></script>
-    <script src="{{ asset('js/angular-touch.js') }}" ></script>
-    <script src="{{ asset('js/toaster.js') }}"></script>
+    {#<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>#}
+    {#<script src="{{ asset('js/angular.js') }}" ></script>#}
+    {#<script src="{{ asset('js/angular-animate.min.js') }}" ></script>#}
+    {#<script src="{{ asset('js/angular-touch.js') }}" ></script>#}
+    {#<script src="{{ asset('js/toaster.js') }}"></script>#}
     {{ ws_client() }}
 
+    <script src="{{ asset('bundles/gosnotification/js/notification/dist/gos-notification-dist.js') }}"></script>
+
     <script>
-//        $(document).ready(function()
-//        {
-//            $(".gos-notification-trigger").click(function()
-//            {
-//                $("#notificationContainer").fadeToggle(300);
-//                $("#notification_count").fadeOut("slow");
-//                return false;
-//            });
-//
-////Document Click hiding the popup
-//            $(document).click(function()
-//            {
-//                $("#notificationContainer").hide();
-//            });
-//
-////Popup on click
-//            $("#notificationContainer").click(function()
-//            {
-//                return false;
-//            });
-//
-//        });
 
-        var notificationApp = angular.module('notificationApp', ['toaster']);
 
-        notificationApp.config(['$interpolateProvider', function($interpolateProvider, $rootScope) {
-            $interpolateProvider.startSymbol('[[').endSymbol(']]');
-        }]);
 
-        notificationApp.config(['$sceProvider', '$httpProvider', function($sceProvider, $httpProvider) {
-            $sceProvider.enabled(false);
-            $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-        }]);
 
-        notificationApp.service('notificationCenter', function($rootScope){
-            this.websocketURI = null;
-            this.websocket = null;
-            this.notificationStack = [];
 
-            this.notificationCallback = function(topic, payload){
 
-                //Send event to notify other service that receive a new notification
-                $rootScope.$broadcast('notification:new', {
-                    topic: topic,
-                    payload: payload
-                });
-            };
 
-            this.fetch = function(session, route, start, end, successCb){
-                var _this = this;
-                start = start || 1;
-                end = end || 15;
 
-                session.call('notification/fetch', {
-                    start: start,
-                    end: end,
-                    route: route
-                }).then(successCb, function(error) {
-                    console.log(error);
-                });
-            }
-        });
 
-        notificationApp.service('websocket', function($rootScope){
-            this.websocket = null;
-            this.connected = false;
-            this.session = null;
-
-            this.connect = function(socketURI){
-                var _this = this;
-
-                this.websocket = WS.connect(socketURI);
-
-                this.websocket.on('socket/connect', function(session){
-                    _this.connected = true;
-                    _this.session = session;
-                    console.log('connected to ' + socketURI);
-                    $rootScope.$broadcast('ws:connect', session);
-                });
-
-                $rootScope.$on('socket/disconnect', function(event, error){
-                    console.log("Disconnected for " + error.reason + " with code " + error.code);
-                });
-
-                this.websocket.on('socket/disconnect', function(error){
-                    _this.connected = false;
-                    _this.session = null;
-                    $rootScope.$broadcast('ws:disconnect', error);
-                });
-            };
-
-            this.isConnected = function(){
-                return this.connected;
-            }
-        });
-
-        notificationApp.controller('toggleCtrl', function($scope, $rootScope){
-            $scope.open = false;
-
-            $scope.toggleNotification = function(){
-                $scope.open = !$scope.open;
-                $rootScope.$broadcast('board:display', $scope.open);
-            }
-        });
-
-        notificationApp.controller('boardCtrl', function($rootScope, $scope, websocket, notificationCenter){
-            $scope.display = false;
-            $scope.notifications = [];
-
-            $scope.init = function(socketURI){
-                websocket.connect(socketURI);
-            };
-
-            $scope.$on('board:display', function(event, arg){
-                $scope.display = arg;
-
-                if(!$scope.display){
-                    return;
-                }
-
-                if(websocket.isConnected()){
-                    var route = {
-                        name: 'user_notification',
-                        parameters: { username: 'user2'}
-                    };
-
-                    notificationCenter.fetch(websocket.session, route, 1, 15, function(payload){
-                        $scope.$apply(function(){
-                            $scope.notifications = payload.result;
-                        });
-                    });
-                }
-
-                $rootScope.$on('ws:connect', function(event, session){
-                    console.log('here');
-                    $scope.notifications = notificationCenter.fetch(session, ['notification/user/user2'], 1, 15, function(a){
-                        console.log(a);
-                    });
-                });
-
-            });
-
-            $rootScope.$on('notification:new', function(event, args){
-                console.log(args.payload);
-            });
-        });
-    </script>
+    {#</script>#}
 
     {#<script>#}
         {#var _WS_URI = "ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}";#}
