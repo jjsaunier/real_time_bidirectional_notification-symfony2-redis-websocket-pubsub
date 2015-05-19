@@ -39,7 +39,7 @@ abstract class AbstractPusher implements PusherInterface, ProcessorDelegate
 
         foreach ($request->getAttributes()->all() as $name => $value) {
             if (!isset($this->processors[$name])) {
-                throw new \Exception(sprintf('Mission processor for %s on route "%s"', $name, $request->getRoute()));
+                throw new \Exception(sprintf('Missing processor for %s on route "%s"', $name, $request->getRoute()));
             }
 
             /** @var ProcessorInterface $processor */
@@ -67,6 +67,7 @@ abstract class AbstractPusher implements PusherInterface, ProcessorDelegate
      * @param MessageInterface             $message
      * @param NotificationInterface        $notification
      * @param PubSubRequest                $request
+     * @param array                        $matrix
      * @param NotificationContextInterface $context
      */
     protected function doPush(
@@ -111,10 +112,18 @@ abstract class AbstractPusher implements PusherInterface, ProcessorDelegate
      * @param null   $value
      * @param int    $i
      *
+     * @see http://fr.wikipedia.org/wiki/Matrice_de_permutation
+     *
      * @return array
      */
-    protected function generateMatrixPermutations(array $data, array &$all = array(), $groupName = '', array $group = array(), $value = null, $i = 0)
-    {
+    protected function generateMatrixPermutations(
+        array $data,
+        array &$all = array(),
+        $groupName = '',
+        array $group = array(),
+        $value = null,
+        $i = 0
+    ) {
         $keys = array_keys($data);
 
         if (isset($value) === true) {

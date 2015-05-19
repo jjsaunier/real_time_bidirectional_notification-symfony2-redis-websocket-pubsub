@@ -8,6 +8,42 @@ namespace Gos\Bundle\NotificationBundle\Model;
 interface NotificationInterface extends \JsonSerializable
 {
     /**
+     * @param $key
+     * @param $value
+     */
+    public function addExtra($key, $value);
+
+    /**
+     * @return string
+     */
+    public function getLink();
+
+    /**
+     * @param string $link
+     */
+    public function setLink($link);
+
+    /**
+     * @return array
+     */
+    public function getExtra();
+
+    /**
+     * @param array $extra
+     */
+    public function setExtra($extra);
+
+    /**
+     * @return int
+     */
+    public function getTimeout();
+
+    /**
+     * @param int $timeout
+     */
+    public function setTimeout($timeout);
+
+    /**
      * @return string
      */
     public function getUuid();
@@ -81,4 +117,14 @@ interface NotificationInterface extends \JsonSerializable
      * @return array
      */
     public function toArray();
+
+    /**
+     * @return string
+     */
+    public function getChannel();
+
+    /**
+     * @param string $url
+     */
+    public function setChannel($url);
 }

@@ -32,18 +32,34 @@ class NotificationProcedure implements RpcInterface
     }
 
     /**
+     * @param string $channel
+     *
+     * @return string
+     */
+    protected function transliterateChannel($channel)
+    {
+        return str_replace('/', ':', $channel);
+    }
+
+    /**
      * @param ConnectionInterface $conn
      * @param                     $params
      *
      * @return RpcResponse
      */
-    public function fetch(ConnectionInterface $conn, WampRequest $request, $params)
+    public function fetch(ConnectionInterface $conn, WampRequest $request, Array $params)
     {
         $start = $params['start'];
         $end = $params['end'];
-        $route = $params['route'];
+        $channel = $this->transliterateChannel($params['channel']);
 
-        return new RpcResponse($this->notificationCenter->fetch($route['name'], $route['parameters'], $start, $end));
+        if(is_array($channel)){
+            $result = $this->notificationCenter->multipleFetch($channel, $start, $end);
+        }else{
+            $result = $this->notificationCenter->fetch($channel, $start, $end);
+        }
+
+        return new RpcResponse($result);
     }
 
     /**
@@ -54,10 +70,16 @@ class NotificationProcedure implements RpcInterface
      */
     public function count(ConnectionInterface $conn, WampRequest $request, Array $params)
     {
-        $channels = $params['channels'];
         $options = $params['options'];
+        $channel = $this->transliterateChannel($params['channel']);
 
-        return new RpcResponse($this->notificationCenter->count($channels, $options));
+        if(is_array($channel)){
+            $result = $this->notificationCenter->multipleCount($channel, $options);
+        }else{
+            $result = $this->notificationCenter->count($channel, $options);
+        }
+
+        return new RpcResponse($result);
     }
 
     /**
@@ -68,10 +90,10 @@ class NotificationProcedure implements RpcInterface
      */
     public function getNotification(ConnectionInterface $conn, WampRequest $request, Array $params)
     {
-        $channel = $params['channel'];
         $uuid = $params['uuid'];
+        $channel = $this->transliterateChannel($params['channel']);
 
-        return new RpcResponse($this->notificationCenter->getNotification($channel, $uuid));
+        return new RpcResponse($channel, $this->notificationCenter->getNotification($channel, $uuid));
     }
 
     /**
@@ -82,11 +104,17 @@ class NotificationProcedure implements RpcInterface
      */
     public function markAsViewed(ConnectionInterface $conn, WampRequest $request, Array $params)
     {
-        $channel = $params['channel'];
+        $channel = $this->transliterateChannel($params['channel']);
         $uuid = $params['uuid'];
-        $force = (bool) $params['force'];
 
-        return new RpcResponse($this->notificationCenter->markAsViewed($channel, $uuid, $force));
+        if(isset($params['force'])){
+            $force = (bool) $params['force'];
+            $result = $this->notificationCenter->markAsViewed($channel, $uuid, $force);
+        }else{
+            $result = $this->notificationCenter->markAsViewed($channel, $uuid);
+        }
+
+        return new RpcResponse($result);
     }
 
     /**

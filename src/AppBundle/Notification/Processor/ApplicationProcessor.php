@@ -23,7 +23,7 @@ class ApplicationProcessor implements ProcessorInterface
     /**
      * {@inheritdoc}
      */
-    public function doProcessUnique($pusherName, NotificationInterface $notification, PubSubRequest $request)
+    protected function doProcessUnique($pusherName, NotificationInterface $notification, PubSubRequest $request)
     {
         return $request->getAttributes()->get('application', false);
     }
@@ -31,7 +31,7 @@ class ApplicationProcessor implements ProcessorInterface
     /**
      * {@inheritdoc}
      */
-    public function doProcessWildcard($pusherName, NotificationInterface $notification, PubSubRequest $request)
+    protected function doProcessWildcard($pusherName, NotificationInterface $notification, PubSubRequest $request)
     {
         return [
             'blog',

@@ -2,79 +2,8 @@
 
 {% block stylesheets %}
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('bundles/gosnotification/js/notification/dist/notification-widget.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.min.css" rel="stylesheet" />
-    <style>
-        body{
-            background-color: #dedede;
-        }
-        #notification_li{position:relative}
-        #notificationContainer {
-            background-color: #fff;
-            border: 1px solid rgba(100, 100, 100, .4);
-            -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-            overflow: visible;
-            position: absolute;
-            top: 51px;
-            left: -12px;
-            width: 400px;
-            z-index: 999999999;
-        }
-        #notificationContainer:before {
-            content: '';
-            display: block;
-            position: absolute;
-            width: 0;
-            height: 0;
-            color: transparent;
-            border: 10px solid black;
-            border-color: transparent transparent white;
-            margin-top: -20px;
-            margin-left: 17px;
-        }
-        #notificationTitle {
-            z-index: 1000;
-            font-weight: bold;
-            padding: 8px;
-            font-size: 13px;
-            background-color: #ffffff;
-            width: 384px;
-            border-bottom: 1px solid #dddddd;
-        }
-        #notificationsBody {
-            padding: 33px 0px 0px 0px !important;
-            min-height:300px;
-        }
-        #notificationFooter {
-            background-color: #e9eaed;
-            text-align: center;
-            font-weight: bold;
-            padding: 8px;
-            font-size: 12px;
-            border-top: 1px solid #dddddd;
-        }
-        #notification_count {
-            padding: 3px 7px 3px 7px;
-            background: #cc0000;
-            color: #ffffff;
-            font-weight: bold;
-            margin-left: 77px;
-            border-radius: 9px;
-            position: absolute;
-            margin-top: -11px;
-            font-size: 11px;
-        }
-
-        [ng\:cloak], [ng-cloak], .ng-cloak {
-            display: none !important;
-        }
-
-        #no-theme_icon{
-            color: #fff;
-            font-size: 27px;
-            top: 10px;
-            position: absolute;
-        }
-    </style>
 {% endblock %}
 
 {% block body %}
@@ -107,61 +36,55 @@
         {#</div>#}
     {#</div>#}
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+    <div class="container-fluid">
+        <div class="row">
+            <div ng-app="notificationApp">
+                <div ng-controller="realtimeCtrl"></div>
+
+                <button ng-controller="toggleCtrl" type="button" ng-class="{active: open == true}" class="button-default show-notifications js-show-notifications" ng-click="toggleNotification()">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="32" viewBox="0 0 30 32">
+                        <defs>
+                            <g id="icon-bell">
+                                <path class="path1" d="M15.143 30.286q0-0.286-0.286-0.286-1.054 0-1.813-0.759t-0.759-1.813q0-0.286-0.286-0.286t-0.286 0.286q0 1.304 0.92 2.223t2.223 0.92q0.286 0 0.286-0.286zM3.268 25.143h23.179q-2.929-3.232-4.402-7.348t-1.473-8.652q0-4.571-5.714-4.571t-5.714 4.571q0 4.536-1.473 8.652t-4.402 7.348zM29.714 25.143q0 0.929-0.679 1.607t-1.607 0.679h-8q0 1.893-1.339 3.232t-3.232 1.339-3.232-1.339-1.339-3.232h-8q-0.929 0-1.607-0.679t-0.679-1.607q3.393-2.875 5.125-7.098t1.732-8.902q0-2.946 1.714-4.679t4.714-2.089q-0.143-0.321-0.143-0.661 0-0.714 0.5-1.214t1.214-0.5 1.214 0.5 0.5 1.214q0 0.339-0.143 0.661 3 0.357 4.714 2.089t1.714 4.679q0 4.679 1.732 8.902t5.125 7.098z" />
+                            </g>
+                        </defs>
+
+                        <g fill="#000000">
+                            <use xlink:href="#icon-bell" transform="translate(0 0)"></use>
+                        </g>
+                    </svg>
+
+                    <div class="notifications-count js-count"></div>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+
+                <div ng-controller="boardCtrl" ng-init="init('ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}')" ng-cloak ng-show="display == true" class="notifications active js-notifications">
+                    <h3>Notifications</h3>
+                    <ul class="notifications-list" ng-scrollbar rebuild-on="notification:board:rebuild">
+                        <li class="item no-data">You don\'t have notifications</li>
+                        <li ng-repeat="notification in notifications" ng-class="{expired: notification.viewed_at !== null}" class="item js-item" data-id="[[ notification.uuid ]]">
+                            <div class="details">
+                                <span class="title">[[ notification.title ]]</span>
+                                <span class="date">[[ notification.created_at | date ]]</span>
+                            </div>
+
+                            <button type="button" ng-click="dismiss(notification)" class="button-default button-dismiss js-dismiss">×</button>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="show-all">Show all notifications</a>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li>
-
-                        <div ng-app="notificationApp">
-                            <div ng-controller="toggleCtrl">
-                                <a href="#" class="gos-notification-trigger" ng-click="toggleNotification()">
-                                    <span id="notification_count">3</span>
-                                    <i class="glyphicon glyphicon-globe" id="no-theme_icon"> </i>
-                                </a>
-                            </div>
-
-                            <div ng-controller="boardCtrl" ng-init="init('ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}')">
-                                <div ng-cloak ng-show="display == true"  id="notificationContainer">
-                                    <div id="notificationTitle">Notifications</div>
-                                    <div id="notificationsBody" class="notifications">
-                                        <ul ng-repeat="notification in notifications">
-                                            <li class="list-unstyled">
-                                                <h3 class="notification-title">[[ notification.title ]] <span>[[ notification.created_at | date ]]</span></h3>
-
-                                                [[ notification.content ]]
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div id="notificationFooter"><a href="#">See All</a></div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
     {{ render(controller('AppBundle:Security:login')) }}
 {% endblock %}
 
@@ -173,17 +96,18 @@
     {#<script src="{{ asset('js/toaster.js') }}"></script>#}
     {{ ws_client() }}
 
-    <script src="{{ asset('bundles/gosnotification/js/notification/dist/gos-notification-dist.js') }}"></script>
-
     <script>
+        var notificationConfig = {
+            websocketURI: 'ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}',
+            channels: [
+                'notification/user/{{ app.user.username|default('anon') }}'
+            ],
+            debug: true
+        }
+    </script>
 
-
-
-
-
-
-
-
+    <script src="{{ asset('bundles/gosnotification/js/notification/dist/gos-notification.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/gosnotification/js/notification/node_modules/angular-toastr/dist/angular-toastr.tpls.js') }}"></script>
 
     {#</script>#}
 

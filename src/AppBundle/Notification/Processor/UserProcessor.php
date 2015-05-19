@@ -23,7 +23,7 @@ class UserProcessor implements ProcessorInterface
     /**
      * {@inheritdoc}
      */
-    public function doProcessUnique($pusherName, NotificationInterface $notification, PubSubRequest $request)
+    protected function doProcessUnique($pusherName, NotificationInterface $notification, PubSubRequest $request)
     {
         return $request->getAttributes()->get('username', false);
     }
@@ -31,7 +31,7 @@ class UserProcessor implements ProcessorInterface
     /**
      * {@inheritdoc}
      */
-    public function doProcessWildcard($pusherName, NotificationInterface $notification, PubSubRequest $request)
+    protected function doProcessWildcard($pusherName, NotificationInterface $notification, PubSubRequest $request)
     {
         //our users are stored in memory (look at app/security.yml), inject a userRepository and call findAll (or custom) if you use db
         return [

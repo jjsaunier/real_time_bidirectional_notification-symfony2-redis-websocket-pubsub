@@ -5,13 +5,14 @@ namespace AppBundle\Controller;
 use Gos\Bundle\NotificationBundle\Model\Notification;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
     /**
      * @Route("/app/example", name="homepage")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $notifications = array();
 
@@ -22,32 +23,32 @@ class DefaultController extends Controller
             $notification = new Notification();
             $notification->setTitle('Test');
             $notification->setContent('Nouveau utilisateur connecté');
-            $notification->setType(Notification::TYPE_INFO);
+            $notification->setIcon('https://cdn3.iconfinder.com/data/icons/line-icons-medium-version/64/bell-512.png');
+            $notification->setType(Notification::TYPE_ERROR);
 
             $notificationCenter = $this->container->get('gos_notification.notification_center');
 
+            $redisRouter = $this->container->get('gos_pubsub_router.redis');
+
             $notificationCenter->publish(
-                'user_notification',
-                ['username' => 'user2'],
+                $redisRouter->generate('user_notification', ['username' => 'user2']),
                 $notification
             );
 
             $notificationCenter->publish(
-                'user_application_notification',
-                ['username' => '*', 'application' => '*'],
+                $redisRouter->generate('user_application_notification', [ 'username' => '*', 'application' => '*']),
                 $notification
             );
 
             $notificationCenter->publish(
-                'user_notification',
-                ['username' => 'all'],
+                $redisRouter->generate('user_notification', [ 'username' => 'all']),
                 $notification
             );
 
-            $notificationCenter->count('user_notification', ['username' => 'user2']);
+            $notificationCenter->count($redisRouter->generate('user_notification', [ 'username' => 'user2']));
 
-            $notification = $notificationCenter->getNotification('user_notification', ['username' => 'user2'], '3d226551-b67e-4bc0-9885-6925498fe658');
-            $notificationCenter->markAsViewed('user_notification', ['username' => 'user2'], $notification);
+            $notification = $notificationCenter->getNotification($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
+            $notificationCenter->markAsViewed($redisRouter->generate('user_notification', [ 'username' => 'user2']), '9b16e610-e3fe-4aed-8f22-467860cf09c0');
         }
 
         return $this->render('AppBundle:App:index.html.twig', [
