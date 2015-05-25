@@ -4,7 +4,14 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/", "Gos": "src/Gos" }
+        "psr-0": {
+            "": "src/", "SymfonyStandard": "app/",
+            "Gos": "src/Gos"
+        },
+        "psr-4": {
+            "Gos\\Component\\PnctlEventLoopEmitter\\": "src/Gos/Component/PnctlEventLoopEmitter/src/",
+            "Gos\\Component\\RatchetStack\\": "src/Gos/Component/RatchetStack/src/"
+        }
     },
     "require": {
         "php": ">=5.3.3",
