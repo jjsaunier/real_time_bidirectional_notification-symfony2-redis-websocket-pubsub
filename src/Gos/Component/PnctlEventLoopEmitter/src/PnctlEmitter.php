@@ -17,7 +17,7 @@ class PnctlEmitter extends EventEmitter
     }
 
     /**
-     * @param int $signo
+     * @param int      $signo
      * @param callable $listener
      */
     public function on($signo, $listener)

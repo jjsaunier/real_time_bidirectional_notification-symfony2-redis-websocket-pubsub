@@ -22,7 +22,7 @@ class Builder
     public function unshift(/*$kernelClass, $args...*/)
     {
         if (func_num_args() === 0) {
-            throw new \InvalidArgumentException("Missing argument(s) when calling unshift");
+            throw new \InvalidArgumentException('Missing argument(s) when calling unshift');
         }
 
         $msgApp = func_get_args();
@@ -37,7 +37,7 @@ class Builder
     public function push(/*$kernelClass, $args...*/)
     {
         if (func_num_args() === 0) {
-            throw new \InvalidArgumentException("Missing argument(s) when calling push");
+            throw new \InvalidArgumentException('Missing argument(s) when calling push');
         }
 
         $msgApp = func_get_args();

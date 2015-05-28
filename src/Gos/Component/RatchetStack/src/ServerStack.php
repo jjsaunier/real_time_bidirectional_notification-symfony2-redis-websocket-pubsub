@@ -4,7 +4,7 @@ namespace Gos\Component\RatchetStack;
 
 use Ratchet\Server\IoServer;
 
-class ServerStack
+class ServerStack /* Implements IoServerInterface */
 {
     /**
      * @var IoServer
