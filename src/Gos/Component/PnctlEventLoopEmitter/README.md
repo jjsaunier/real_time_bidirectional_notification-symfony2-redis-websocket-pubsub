@@ -15,16 +15,19 @@ Usage
 
 ```php
 use React\EventLoop\Factory;
+use Gos\Component\PnctlEventLoopEmitter\PnctlEmitter;
 
 $loop = Factory::create();
 
-$pcntl->on(SIGTERM, function () use ($loop) {
+$pnctlEmitter = new PnctlEmitter($this->loop);
+
+$pnctlEmitter->on(SIGTERM, function () use ($loop) {
 	//do something
 	
 	$loop->stop();
 });
 
-$pcntl->on(SIGINT, function () use ($loop) {
+$pnctlEmitter->on(SIGINT, function () use ($loop) {
 	//do something
 	
 	$loop->stop();
@@ -40,8 +43,10 @@ Handle double CTRL+C
 
 ```php
 use React\EventLoop\Factory;
+use Gos\Component\PnctlEventLoopEmitter\PnctlEmitter;
 
 $loop = Factory::create();
+$pnctlEmitter = new PnctlEmitter($this->loop);
 
 $pnctlEmitter->on(SIGINT, function () use ($loop) {
 	$this->logger->notice('Press CTLR+C again to stop the server');

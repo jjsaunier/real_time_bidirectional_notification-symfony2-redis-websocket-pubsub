@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "14651a7130e53e0bdbba5f5c5b453ada",
+    "hash": "91c358f26bb9c979fa00487e47c3d102",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -1058,6 +1058,54 @@
             "time": "2015-02-28 16:59:24"
         },
         {
+            "name": "gos/yolo",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GeniusesOfSymfony/Yolo.git",
+                "reference": "c715d0e6c85a7fa744dd08df5942148557acee14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GeniusesOfSymfony/Yolo/zipball/c715d0e6c85a7fa744dd08df5942148557acee14",
+                "reference": "c715d0e6c85a7fa744dd08df5942148557acee14",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "psr/log": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gos\\Component\\Yolo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johann Saunier",
+                    "email": "johann_27@hotmail.fr"
+                }
+            ],
+            "description": "Advanced Retry Implementation",
+            "homepage": "https://github.com/GeniusesOfSymfony/Yolo",
+            "keywords": [
+                "handler",
+                "retry",
+                "yolo"
+            ],
+            "time": "2015-06-01 21:01:29"
+        },
+        {
             "name": "guzzle/common",
             "version": "v3.9.2",
             "target-dir": "Guzzle/Common",
@@ -1684,6 +1732,50 @@
                 "event-loop"
             ],
             "time": "2013-07-21 02:23:09"
+        },
+        {
+            "name": "react/promise",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/promise.git",
+                "reference": "365fcee430dfa4ace1fbc75737ca60ceea7eeeef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/365fcee430dfa4ace1fbc75737ca60ceea7eeeef",
+                "reference": "365fcee430dfa4ace1fbc75737ca60ceea7eeeef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "React\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@googlemail.com"
+                }
+            ],
+            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
+            "time": "2014-12-30 13:32:42"
         },
         {
             "name": "react/socket",

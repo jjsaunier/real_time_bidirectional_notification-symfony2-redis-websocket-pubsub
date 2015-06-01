@@ -32,7 +32,9 @@
         "gos/web-socket-bundle": "~1.0",
         "doctrine/doctrine-cache-bundle": "~1.0",
         "gos/ratchet-stack": "~0.1",
-        "gos/pnctl-event-loop-emitter" : "~0.1"
+        "gos/pnctl-event-loop-emitter" : "~0.1",
+        "gos/yolo": "^0.1.0",
+        "react/promise": "^2.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
