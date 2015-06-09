@@ -47,8 +47,8 @@ class DefaultController extends Controller
 
             $notificationCenter->count($redisRouter->generate('user_notification', [ 'username' => 'user2']));
 
-            $notification = $notificationCenter->getNotification($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
-            $notificationCenter->markAsViewed($redisRouter->generate('user_notification', [ 'username' => 'user2']), '9b16e610-e3fe-4aed-8f22-467860cf09c0');
+//            $notification = $notificationCenter->getNotification($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
+//            $notificationCenter->markAsViewed($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
         }
 
         return $this->render('AppBundle:App:index.html.twig', [
