@@ -10,7 +10,8 @@
         },
         "psr-4": {
             "Gos\\Component\\PnctlEventLoopEmitter\\": "src/Gos/Component/PnctlEventLoopEmitter/src/",
-            "Gos\\Component\\RatchetStack\\": "src/Gos/Component/RatchetStack/src/"
+            "Gos\\Component\\RatchetStack\\": "src/Gos/Component/RatchetStack/src/",
+            "Prophet777\\MoonWalk\\": "src/Prophet777/MoonWalk/src/"
         }
     },
     "require": {
@@ -35,7 +36,9 @@
         "gos/pnctl-event-loop-emitter" : "~0.1",
         "gos/yolo": "^0.1.0",
         "react/promise": "^2.2",
-        "ramsey/uuid": "^2.8"
+        "ramsey/uuid": "^2.8",
+        "webmozart/path-util": "^2.0",
+        "mkraemer/react-inotify": "^1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

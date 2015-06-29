@@ -1,0 +1,38 @@
+application:
+    build: notification/code
+    volumes:
+        - ../:/var/www/notification
+        - logs/app/:/var/www/notification/app/logs
+    tty: true
+
+mysql:
+    build: notification/mysql
+    ports:
+        - 3306:3306
+    env_file:
+        - env/mysql.env
+
+php:
+    build: notification/php
+    expose:
+        - 9000:9000
+        - 9011:9011
+        - 9010:9010
+    volumes_from:
+        - application
+    links:
+        - mysql
+    env_file:
+        - env/php.env
+
+nginx:
+    build: notification/nginx
+    ports:
+        - 1337:1337
+        - 8081:80
+    links:
+        - php
+    volumes_from:
+        - application
+    volumes:
+        - logs/nginx/:/var/log/nginx

@@ -78,6 +78,25 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# Monolog
+monolog:
+    handlers:
+        main:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+            channels: ["!snc_redis", "!websocket"]
+        redis_file:
+            type:   stream
+            path:   "%kernel.logs_dir%/redis.log"
+            level:  debug
+            channels: ["snc_redis"]
+        websocket_file:
+            type:   stream
+            path:   "%kernel.logs_dir%/websocket.log"
+            level:  debug
+            channels: ["websocket"]
+
 # Snc redis Bundle
 snc_redis:
     clients:
@@ -114,6 +133,7 @@ gos_web_socket:
             resources:
                 - @GosNotificationBundle/Resources/config/pubsub/websocket/notification.yml
                 - @GosNotificationBundle/Resources/config/pubsub/websocket/notification_rpc.yml
+                - @MoonWalkBundle/Resources/config/websocket/watcher.yml
     origins:
         - www.notification.dev
         - notification.dev

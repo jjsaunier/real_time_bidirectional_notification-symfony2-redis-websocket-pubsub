@@ -25,7 +25,8 @@ class AppKernel extends Kernel
             new Snc\RedisBundle\SncRedisBundle(),
             new GosWebSocketBundle(),
             new GosNotificationBundle(),
-            new DoctrineCacheBundle()
+            new DoctrineCacheBundle(),
+            new Prophet777\MoonWalk\MoonWalkBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

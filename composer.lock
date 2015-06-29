@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4eda6836dcdec306c614d86bc4b1cfb9",
+    "hash": "522881f38a5a1ec671b83bbb348525a5",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -56,16 +56,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.2.4",
+            "version": "v1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "b5202eb9e83f8db52e0e58867e0a46e63be8332e"
+                "reference": "f4a91702ca3cd2e568c3736aa031ed00c3752af4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/b5202eb9e83f8db52e0e58867e0a46e63be8332e",
-                "reference": "b5202eb9e83f8db52e0e58867e0a46e63be8332e",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/f4a91702ca3cd2e568c3736aa031ed00c3752af4",
+                "reference": "f4a91702ca3cd2e568c3736aa031ed00c3752af4",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2014-12-23 22:40:37"
+            "time": "2015-06-17 12:21:22"
         },
         {
             "name": "doctrine/cache",
@@ -800,7 +800,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeniusesOfSymfony/PNCTLEventLoopEmitter/zipball/3de92668a23c6f6e402c625c7a2c1a3cf4dad65d",
+                "url": "https://api.github.com/repos/GeniusesOfSymfony/PNCTLEventLoopEmitter/zipball/b72d5dc8316c9b96182d19bd44457857701a5b82",
                 "reference": "9f062bd417eb17bf0f1a84f0dc393eec5e74186f",
                 "shasum": ""
             },
@@ -841,16 +841,16 @@
         },
         {
             "name": "gos/pubsub-router-bundle",
-            "version": "v0.1.1",
+            "version": "v0.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GeniusesOfSymfony/PubSubRouterBundle.git",
-                "reference": "6087eda30ccf385bdff57161877341630ca0be3b"
+                "reference": "1a2443a5fb1eed5ac3f504226966f731b26b50ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeniusesOfSymfony/PubSubRouterBundle/zipball/6087eda30ccf385bdff57161877341630ca0be3b",
-                "reference": "6087eda30ccf385bdff57161877341630ca0be3b",
+                "url": "https://api.github.com/repos/GeniusesOfSymfony/PubSubRouterBundle/zipball/1a2443a5fb1eed5ac3f504226966f731b26b50ed",
+                "reference": "1a2443a5fb1eed5ac3f504226966f731b26b50ed",
                 "shasum": ""
             },
             "require": {
@@ -892,7 +892,7 @@
                 "redis",
                 "zmq"
             ],
-            "time": "2015-04-18 11:22:11"
+            "time": "2015-06-27 01:43:37"
         },
         {
             "name": "gos/ratchet-stack",
@@ -944,16 +944,16 @@
         },
         {
             "name": "gos/web-socket-bundle",
-            "version": "v1.1.4",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GeniusesOfSymfony/WebSocketBundle.git",
-                "reference": "4d0dc0f5fc17cb2b431438ab88edea627dea1ffb"
+                "reference": "f96127884cb99a65fd868fbec352130a2ce2d8a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeniusesOfSymfony/WebSocketBundle/zipball/4d0dc0f5fc17cb2b431438ab88edea627dea1ffb",
-                "reference": "4d0dc0f5fc17cb2b431438ab88edea627dea1ffb",
+                "url": "https://api.github.com/repos/GeniusesOfSymfony/WebSocketBundle/zipball/f96127884cb99a65fd868fbec352130a2ce2d8a7",
+                "reference": "f96127884cb99a65fd868fbec352130a2ce2d8a7",
                 "shasum": ""
             },
             "require": {
@@ -1005,20 +1005,20 @@
                 "io",
                 "websocket"
             ],
-            "time": "2015-05-28 21:48:32"
+            "time": "2015-06-24 21:58:01"
         },
         {
             "name": "gos/websocket-client",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/GeniusesOfSymfony/WebSocketClient.git",
-                "reference": "0d69ad972a4407fd7aa76b59fb10041d182a73a3"
+                "url": "https://github.com/GeniusesOfSymfony/WebSocketPhpClient.git",
+                "reference": "dc70675f15ec958e44b02d7af31cbf7b95344503"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeniusesOfSymfony/WebSocketClient/zipball/0d69ad972a4407fd7aa76b59fb10041d182a73a3",
-                "reference": "0d69ad972a4407fd7aa76b59fb10041d182a73a3",
+                "url": "https://api.github.com/repos/GeniusesOfSymfony/WebSocketPhpClient/zipball/dc70675f15ec958e44b02d7af31cbf7b95344503",
+                "reference": "dc70675f15ec958e44b02d7af31cbf7b95344503",
                 "shasum": ""
             },
             "require": {
@@ -1055,7 +1055,7 @@
                 "WAMP",
                 "websocket"
             ],
-            "time": "2015-02-28 16:59:24"
+            "time": "2015-06-27 01:45:10"
         },
         {
             "name": "gos/yolo",
@@ -1309,17 +1309,16 @@
         },
         {
             "name": "incenteev/composer-parameter-handler",
-            "version": "v2.1.0",
-            "target-dir": "Incenteev/ParameterHandler",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Incenteev/ParameterHandler.git",
-                "reference": "143272a0a09c62616a3c8011fc165a10c6b35241"
+                "reference": "84a205fe80a46101607bafbc423019527893ddd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/143272a0a09c62616a3c8011fc165a10c6b35241",
-                "reference": "143272a0a09c62616a3c8011fc165a10c6b35241",
+                "url": "https://api.github.com/repos/Incenteev/ParameterHandler/zipball/84a205fe80a46101607bafbc423019527893ddd0",
+                "reference": "84a205fe80a46101607bafbc423019527893ddd0",
                 "shasum": ""
             },
             "require": {
@@ -1338,8 +1337,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Incenteev\\ParameterHandler": ""
+                "psr-4": {
+                    "Incenteev\\ParameterHandler\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1357,7 +1356,7 @@
             "keywords": [
                 "parameters management"
             ],
-            "time": "2013-12-07 10:10:39"
+            "time": "2015-06-03 08:27:03"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1484,17 +1483,60 @@
             "time": "2014-12-12 05:04:05"
         },
         {
-            "name": "monolog/monolog",
-            "version": "1.13.1",
+            "name": "mkraemer/react-inotify",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac"
+                "url": "https://github.com/mkraemer/react-inotify.git",
+                "reference": "28dd65e39ab10097fb12a9c276b3cb09a3947204"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
-                "reference": "c31a2c4e8db5da8b46c74cf275d7f109c0f249ac",
+                "url": "https://api.github.com/repos/mkraemer/react-inotify/zipball/28dd65e39ab10097fb12a9c276b3cb09a3947204",
+                "reference": "28dd65e39ab10097fb12a9c276b3cb09a3947204",
+                "shasum": ""
+            },
+            "require": {
+                "evenement/evenement": "~1.0|~2.0",
+                "ext-inotify": "*",
+                "php": ">=5.3.0",
+                "react/event-loop": "^0.2|^0.3|^0.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MKraemer": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Krämer",
+                    "email": "marius@marius-kraemer.de"
+                }
+            ],
+            "description": "Inotify bindings for ReactPHP",
+            "keywords": [
+                "inotify",
+                "react"
+            ],
+            "time": "2015-05-19 11:00:43"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "b287fbbe1ca27847064beff2bad7fb6920bf08cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/b287fbbe1ca27847064beff2bad7fb6920bf08cc",
+                "reference": "b287fbbe1ca27847064beff2bad7fb6920bf08cc",
                 "shasum": ""
             },
             "require": {
@@ -1505,12 +1547,14 @@
                 "psr/log-implementation": "1.0.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "~2.4, >2.4.8",
+                "aws/aws-sdk-php": "^2.4.9",
                 "doctrine/couchdb": "~1.0@dev",
                 "graylog2/gelf-php": "~1.0",
-                "phpunit/phpunit": "~4.0",
-                "raven/raven": "~0.5",
-                "ruflin/elastica": "0.90.*",
+                "php-console/php-console": "^3.1.3",
+                "phpunit/phpunit": "~4.5",
+                "phpunit/phpunit-mock-objects": "2.3.0",
+                "raven/raven": "~0.8",
+                "ruflin/elastica": ">=0.90 <3.0",
                 "swiftmailer/swiftmailer": "~5.3",
                 "videlalvaro/php-amqplib": "~2.4"
             },
@@ -1520,6 +1564,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
                 "raven/raven": "Allow sending log messages to a Sentry server",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
@@ -1528,7 +1573,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13.x-dev"
+                    "dev-master": "1.14.x-dev"
                 }
             },
             "autoload": {
@@ -1554,7 +1599,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-03-09 09:58:04"
+            "time": "2015-06-19 13:29:54"
         },
         {
             "name": "predis/predis",
@@ -1692,20 +1737,23 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "2.8.0",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "cca98c652cac412c9c2f109c69e5532f313435fc"
+                "reference": "c1d7d8f0ac860fceaadadbda7154e8b5d2f9789e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/cca98c652cac412c9c2f109c69e5532f313435fc",
-                "reference": "cca98c652cac412c9c2f109c69e5532f313435fc",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/c1d7d8f0ac860fceaadadbda7154e8b5d2f9789e",
+                "reference": "c1d7d8f0ac860fceaadadbda7154e8b5d2f9789e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "replace": {
+                "rhumsaa/uuid": "self.version"
             },
             "require-dev": {
                 "doctrine/dbal": ">=2.3",
@@ -1723,11 +1771,6 @@
                 "bin/uuid"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.8.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Rhumsaa\\Uuid\\": "src/"
@@ -1754,7 +1797,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2014-11-09 18:42:56"
+            "time": "2015-06-16 15:12:41"
         },
         {
             "name": "react/event-loop",
@@ -1932,17 +1975,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.28",
+            "version": "v3.0.30",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "8175618b07793b9d43c3be931f3d8d4c14c9e866"
+                "reference": "f1758b30096202aeede61f79a1dffd69da091517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/8175618b07793b9d43c3be931f3d8d4c14c9e866",
-                "reference": "8175618b07793b9d43c3be931f3d8d4c14c9e866",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/f1758b30096202aeede61f79a1dffd69da091517",
+                "reference": "f1758b30096202aeede61f79a1dffd69da091517",
                 "shasum": ""
             },
             "require": {
@@ -1988,20 +2031,20 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-06-01 15:04:20"
+            "time": "2015-06-05 22:32:22"
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.8",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "a30fc18bf147bc25faf6b1d54bf55cfad4b63cba"
+                "reference": "0616fd568da051adc19ca63006cc808531ba2da4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/a30fc18bf147bc25faf6b1d54bf55cfad4b63cba",
-                "reference": "a30fc18bf147bc25faf6b1d54bf55cfad4b63cba",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/0616fd568da051adc19ca63006cc808531ba2da4",
+                "reference": "0616fd568da051adc19ca63006cc808531ba2da4",
                 "shasum": ""
             },
             "require": {
@@ -2043,7 +2086,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2015-05-29 18:27:23"
+            "time": "2015-06-05 13:59:21"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -2151,23 +2194,23 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.0",
+            "version": "v5.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f"
+                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/31454f258f10329ae7c48763eb898a75c39e0a9f",
-                "reference": "31454f258f10329ae7c48763eb898a75c39e0a9f",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0697e6aa65c83edf97bb0f23d8763f94e3f11421",
+                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1"
+                "mockery/mockery": "~0.9.1,<0.9.4"
             },
             "type": "library",
             "extra": {
@@ -2196,10 +2239,11 @@
             "description": "Swiftmailer, free feature-rich PHP mailer",
             "homepage": "http://swiftmailer.org",
             "keywords": [
+                "email",
                 "mail",
                 "mailer"
             ],
-            "time": "2015-03-14 06:06:39"
+            "time": "2015-06-06 14:19:39"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -2553,16 +2597,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.18.1",
+            "version": "v1.18.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "9f70492f44398e276d1b81c1b43adfe6751c7b7f"
+                "reference": "e8e6575abf6102af53ec283f7f14b89e304fa602"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/9f70492f44398e276d1b81c1b43adfe6751c7b7f",
-                "reference": "9f70492f44398e276d1b81c1b43adfe6751c7b7f",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e8e6575abf6102af53ec283f7f14b89e304fa602",
+                "reference": "e8e6575abf6102af53ec283f7f14b89e304fa602",
                 "shasum": ""
             },
             "require": {
@@ -2606,7 +2650,98 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-04-19 08:30:27"
+            "time": "2015-06-06 23:31:24"
+        },
+        {
+            "name": "webmozart/assert",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webmozart/assert.git",
+                "reference": "b8ef76d0f0c3b9a0a1bc987085fe0a0ddba984ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/b8ef76d0f0c3b9a0a1bc987085fe0a0ddba984ab",
+                "reference": "b8ef76d0f0c3b9a0a1bc987085fe0a0ddba984ab",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webmozart\\Assert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                }
+            ],
+            "description": "Assertions to validate method input/output with nice error messages.",
+            "keywords": [
+                "assert",
+                "check",
+                "validate"
+            ],
+            "time": "2015-05-12 15:19:25"
+        },
+        {
+            "name": "webmozart/path-util",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webmozart/path-util.git",
+                "reference": "ff82d231236bec95020c7d2bfa10780402b0cbeb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webmozart/path-util/zipball/ff82d231236bec95020c7d2bfa10780402b0cbeb",
+                "reference": "ff82d231236bec95020c7d2bfa10780402b0cbeb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "webmozart/assert": "~1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webmozart\\PathUtil\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Schussek",
+                    "email": "bschussek@gmail.com"
+                }
+            ],
+            "description": "A robust cross-platform utility for normalizing, comparing and modifying file paths.",
+            "time": "2015-05-21 10:43:18"
         }
     ],
     "packages-dev": [

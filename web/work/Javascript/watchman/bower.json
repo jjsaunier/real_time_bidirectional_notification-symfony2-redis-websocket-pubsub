@@ -1,0 +1,19 @@
+{
+  "name": "watchman",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ProPheT777/real_time_bidirectional_notification-symfony2-redis-websocket-pubsub",
+  "authors": [
+    "prophet777 <johann_27@hotmail.fr>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.0",
+    "angular-scroll-glue": "~2.0.6",
+    "gos-websocket-client-angular": "*",
+    "angular": "~1.4.1"
+  }
+}

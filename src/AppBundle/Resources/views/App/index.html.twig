@@ -47,9 +47,9 @@
     <div class="container-fluid">
         <div class="row">
             <div ng-app="notificationApp">
-                <div ng-controller="realtimeCtrl"></div>
+                <div ng-controller="RealtimeController"></div>
 
-                <button ng-controller="toggleCtrl" type="button" ng-class="{active: open == true}" class="button-default show-notifications js-show-notifications" ng-click="toggleNotification()">
+                <button ng-controller="ToggleController" type="button" ng-class="{active: open == true}" class="button-default show-notifications js-show-notifications" ng-click="toggleNotification()">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="32" viewBox="0 0 30 32">
                         <defs>
                             <g id="icon-bell">
@@ -65,17 +65,12 @@
                     <div class="notifications-count js-count"></div>
                 </button>
 
-                <div ng-controller="boardCtrl" ng-init="init('ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}')" ng-cloak ng-show="display == true" class="notifications active js-notifications">
+                <div ng-controller="BoardController" ng-init="init('ws://{{ gos_web_socket_server_host }}:{{ gos_web_socket_server_port }}')" ng-cloak ng-show="display == true" class="notifications active js-notifications">
                     <h3>Notifications</h3>
                     <ul class="notifications-list" ng-scrollbar rebuild-on="notification:board:rebuild">
                         <li class="item no-data">You don\'t have notifications</li>
-                        <li ng-repeat="notification in notifications" ng-class="{expired: notification.viewed_at !== null}" class="item js-item" data-id="[[ notification.uuid ]]">
-                            <div class="details">
-                                <span class="title">[[ notification.title ]]</span>
-                                <span class="date">[[ notification.created_at | date ]]</span>
-                            </div>
-
-                            <button type="button" ng-click="dismiss(notification)" class="button-default button-dismiss js-dismiss">×</button>
+                        <li gos-notification="[[ notification.uuid ]]" ng-repeat="notification in notifications" ng-class="{expired: notification.viewed_at !== null}" class="item js-item">
+                            <notification="[[ notification.uuid ]]" class="notification"></notification>
                         </li>
                     </ul>
 

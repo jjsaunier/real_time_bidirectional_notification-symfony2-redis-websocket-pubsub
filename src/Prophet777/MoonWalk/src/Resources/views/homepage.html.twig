@@ -1,0 +1,216 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <style>
+            .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+            #wrapper {
+                padding-left: 0;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+
+            #wrapper.toggled {
+                padding-left: 250px;
+            }
+
+            #sidebar-wrapper {
+                z-index: 1000;
+                position: fixed;
+                left: 250px;
+                width: 0;
+                height: 100%;
+                margin-left: -250px;
+                overflow-y: auto;
+                background: #000;
+                -webkit-transition: all 0.5s ease;
+                -moz-transition: all 0.5s ease;
+                -o-transition: all 0.5s ease;
+                transition: all 0.5s ease;
+            }
+
+            #wrapper.toggled #sidebar-wrapper {
+                width: 250px;
+            }
+
+            #page-content-wrapper {
+                width: 100%;
+                position: absolute;
+                padding: 15px;
+            }
+
+            #wrapper.toggled #page-content-wrapper {
+                position: absolute;
+                margin-right: -250px;
+            }
+
+            /* Sidebar Styles */
+
+            .sidebar-nav {
+                position: absolute;
+                top: 0;
+                width: 250px;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .sidebar-nav li {
+                text-indent: 20px;
+                line-height: 40px;
+            }
+
+            .sidebar-nav li a {
+                display: block;
+                text-decoration: none;
+                color: #999999;
+            }
+
+            .sidebar-nav li a:hover {
+                text-decoration: none;
+                color: #fff;
+                background: rgba(255,255,255,0.2);
+            }
+
+            .sidebar-nav li a:active,
+            .sidebar-nav li a:focus {
+                text-decoration: none;
+            }
+
+            .sidebar-nav > .sidebar-brand {
+                height: 65px;
+                font-size: 18px;
+                line-height: 60px;
+            }
+
+            .sidebar-nav > .sidebar-brand a {
+                color: #999999;
+            }
+
+            .sidebar-nav > .sidebar-brand a:hover {
+                color: #fff;
+                background: none;
+            }
+
+            @media(min-width:768px) {
+                #wrapper {
+                    padding-left: 250px;
+                }
+
+                #wrapper.toggled {
+                    padding-left: 0;
+                }
+
+                #sidebar-wrapper {
+                    width: 250px;
+                }
+
+                #wrapper.toggled #sidebar-wrapper {
+                    width: 0;
+                }
+
+                #page-content-wrapper {
+                    padding: 20px;
+                    position: relative;
+                }
+
+                #wrapper.toggled #page-content-wrapper {
+                    position: relative;
+                    margin-right: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div ng-app="watchman">
+            <div ng-controller="LogController">
+
+                <div id="wrapper">
+                    <div id="sidebar-wrapper">
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-brand" ng-repeat="(file, lines) in collection">
+                                <a href ng-click="$parent.display = file">[[ file ]] ([[ lines.length ]])</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="page-content-wrapper">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div ng-repeat="(file, lines) in collection">
+                                        <ul ng-show="display == file">
+                                            <li ng-repeat="line in lines">
+                                                <div scroll-glue>
+                                                    [[ line.data.message ]]
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="{{ asset('work/Javascript/watchman/bower_components/gos-websocket-client-angular/bower_components/gos-websocket-client/dist/websocket.js') }}"></script>
+        <script src="{{ asset('work/Javascript/watchman/bower_components/gos-websocket-client-angular/bower_components/angular/angular.min.js') }}"></script>
+        <script src="{{ asset('work/Javascript/watchman/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js') }}"></script>
+        <script src="{{ asset('work/Javascript/watchman/bower_components/angular-scroll-glue/src/scrollglue.js') }}"></script>
+        <script src="{{ asset('work/Javascript/watchman/bower_components/gos-websocket-client-angular/dist/angular-websocket.js') }}"></script>
+
+        <script>
+            var watchman = angular.module('watchman', ['GosWebsocket', 'ui.bootstrap', 'luegg.directives']);
+
+            watchman.config(function($interpolateProvider){
+                $interpolateProvider.startSymbol('[[').endSymbol(']]');
+            });
+
+            watchman.run(['WebsocketService', function(WebsocketService){
+                WebsocketService.setConfig({
+                    host: 'notification.dev',
+                    port: 1337,
+                    debug: true,
+                    secured: false
+                });
+            }]);
+
+            watchman.controller('LogController', function($scope, WebsocketService){
+                var connection = WebsocketService.connect();
+
+                $scope.collection = {};
+                $scope.display = null;
+
+                $scope.$watch('display', function(newValue, oldValue){
+                    console.log(newValue, oldValue);
+                });
+
+                connection.then(function(session){
+                    WebsocketService.subscribe('watcher');
+
+                    $scope.$on('ws:[watcher]:publication', function(event, payload){
+                        var data = $scope.$eval(payload);
+
+                        if(null === $scope.display){
+                            $scope.display = data.file_name;
+                        }
+
+                        if(!$scope.collection.hasOwnProperty(data.file_name)){
+                            $scope.collection[data.file_name] = [];
+                        }
+
+                        $scope.collection[data.file_name].push(data);
+                        $scope.$apply();
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
