@@ -9,7 +9,6 @@ services:
         class: Gos\Bundle\NotificationBundle\Server\PubSubServer
         arguments:
             - @event_dispatcher
-            - %gos_notification.pubsub_server.config%
             - @gos_notification.notification.redis.dumper
             - @gos_notification.notification.server.processor
             - %kernel.debug%
@@ -19,6 +18,7 @@ services:
         class: Gos\Bundle\NotificationBundle\Command\ServerCommand
         arguments:
             - @gos_notification.notification.pubsub.server
+            - %gos_notification.pubsub_server.config%
         tags:
             - { name: console.command }
 
@@ -27,6 +27,8 @@ services:
 
     gos_notification.user.topic:
         class: Gos\Bundle\NotificationBundle\Topic\UserNotificationTopic
+        arguments:
+            - @gos_web_socket.wamp.pipeline
         tags:
             - { name: gos_web_socket.topic }
 

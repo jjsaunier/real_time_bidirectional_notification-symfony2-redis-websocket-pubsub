@@ -35,9 +35,6 @@ class PubSubServer implements ServerInterface
     /** @var  EventDispatcherInterface */
     protected $eventDispatcher;
 
-    /** @var array */
-    protected $pubSubConfig;
-
     /** @var RedisDumper */
     protected $redisDumper;
 
@@ -60,15 +57,12 @@ class PubSubServer implements ServerInterface
      */
     public function __construct(
         EventDispatcherInterface $eventDispatcher,
-        Array $pubSubConfig,
         RedisDumper $redisDumper,
         ServerNotificationProcessorInterface $processor,
         $debug,
         LoggerInterface $logger = null
     ) {
-        $this->logger = $logger;
         $this->eventDispatcher = $eventDispatcher;
-        $this->pubSubConfig = $pubSubConfig;
         $this->redisDumper = $redisDumper;
         $this->processor = $processor;
         $this->debug = $debug;
@@ -102,7 +96,7 @@ class PubSubServer implements ServerInterface
     /**
      * {@inheritdoc}
      */
-    public function launch($profile)
+    public function launch($host, $port, $profile)
     {
         $this->logger->info('Starting redis pubsub');
 
@@ -112,7 +106,7 @@ class PubSubServer implements ServerInterface
             $this->handlePnctlEvent();
         }
 
-        $this->client = new Client('tcp://' . $this->getAddress(), $this->loop);
+        $this->client = new Client('tcp://' . $host . ':' . $port, $this->loop);
 
         $dispatcher = new EventEmitter();
         $dispatcher->on('notification', $this->processor);
@@ -166,7 +160,7 @@ class PubSubServer implements ServerInterface
         $this->logger->info(sprintf(
             'Launching %s on %s',
             $this->getName(),
-            $this->getAddress()
+            $host . ':' . $port
         ));
 
         $this->loop->run();
@@ -206,14 +200,6 @@ class PubSubServer implements ServerInterface
                 $this->logger->notice('CTLR+C not pressed, continue to run normally');
             }
         });
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAddress()
-    {
-        return $this->pubSubConfig['host'] . ':' . $this->pubSubConfig['port'];
     }
 
     /**

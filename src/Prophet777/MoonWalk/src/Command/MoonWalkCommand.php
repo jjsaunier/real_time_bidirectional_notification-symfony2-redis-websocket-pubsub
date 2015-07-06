@@ -103,7 +103,7 @@ class MoonWalkCommand extends Command
         $websocket->connect();
 
         $inotify = new Inotify($loop);
-        $inotify->add($watchDir, IN_MODIFY | IN_CLOSE_WRITE);
+        $inotify->add($watchDir, IN_CLOSE_WRITE);
 
         $watchTimer = null;
 
@@ -136,8 +136,10 @@ class MoonWalkCommand extends Command
         });
 
         $inotify->on('data', function($path, $data) use ($websocket, $monologParser) {
+
             $websocket->publish($this->generator->generate('watcher_notify'), json_encode([
                 'type' => 'entry',
+                'format' => 'monolog',
                 'file_path' => $path,
                 'file_name' => Path::getFilename($path),
                 'data' => $monologParser->parse($data)

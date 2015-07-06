@@ -8,5 +8,8 @@ services:
 
     prophet777.watcher.topic:
         class: Prophet777\MoonWalk\src\Topic\WatcherTopic
+        arguments:
+            - @gos_web_socket.websocket.client_manipulator
+            - @gos_web_socket.router.wamp
         tags:
             - { name: gos_web_socket.topic }
