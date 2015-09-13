@@ -5,20 +5,19 @@
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-0": {
-            "": "src/", "SymfonyStandard": "app/",
+            "": "src/",
+            "SymfonyStandard": "app/",
             "Gos": "src/Gos"
         },
         "psr-4": {
-            "Gos\\Component\\PnctlEventLoopEmitter\\": "src/Gos/Component/PnctlEventLoopEmitter/src/",
-            "Gos\\Component\\RatchetStack\\": "src/Gos/Component/RatchetStack/src/",
-            "Prophet777\\MoonWalk\\": "src/Prophet777/MoonWalk/src/"
+            "Gos\\Component\\ReactAMQP\\": "src/Gos/Component/ReactAmqp/src/"
         }
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.6.*",
-        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
-        "doctrine/dbal": "<2.5",
+        "symfony/symfony": "~2.6.0",
+        "doctrine/orm": "~2.5",
+        "doctrine/dbal": "~2.5",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
@@ -27,9 +26,9 @@
         "sensio/distribution-bundle": "~3.0,>=3.0.12",
         "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "snc/redis-bundle": "1.1.x-dev",
-        "predis/predis": "0.8.x-dev",
-        "predis/predis-async": "0.2.*",
+        "snc/redis-bundle": "~1.1",
+        "predis/predis": "~1.0",
+        "predis/predis-async": "dev-master",
         "gos/web-socket-bundle": "~1.0",
         "doctrine/doctrine-cache-bundle": "~1.0",
         "gos/ratchet-stack": "~0.1",
@@ -38,7 +37,12 @@
         "react/promise": "^2.2",
         "ramsey/uuid": "^2.8",
         "webmozart/path-util": "^2.0",
-        "mkraemer/react-inotify": "^1.1"
+        "mkraemer/react-inotify": "^1.1",
+        "react/zmq": "0.2.*|0.3.*",
+        "guzzlehttp/guzzle": "^6.0",
+        "react/child-process": "^0.4.0",
+        "react/socket-client": "^0.4.3",
+        "react/dns": "^0.4.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

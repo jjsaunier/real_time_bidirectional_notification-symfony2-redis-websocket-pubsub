@@ -1,0 +1,104 @@
+2015-08-11 21:46:53,573 CRIT Set uid to user 0
+2015-08-11 21:46:53,574 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-11 21:46:53,574 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-11 21:46:53,599 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:46:53,599 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-11 21:46:53,599 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:46:53,599 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-11 21:46:53,600 INFO supervisord started with pid 1
+2015-08-11 21:46:54,603 INFO spawned: 'php-fpm' with pid 7
+2015-08-11 21:46:55,695 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-11 21:48:07,747 WARN received SIGTERM indicating exit request
+2015-08-11 21:48:07,748 INFO waiting for php-fpm to die
+2015-08-11 21:48:07,768 INFO stopped: php-fpm (exit status 0)
+2015-08-11 21:48:21,749 CRIT Set uid to user 0
+2015-08-11 21:48:21,749 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-11 21:48:21,749 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-11 21:48:21,775 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:48:21,775 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-11 21:48:21,776 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:48:21,776 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-11 21:48:21,776 INFO supervisord started with pid 1
+2015-08-11 21:48:22,779 INFO spawned: 'php-fpm' with pid 7
+2015-08-11 21:48:23,847 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-11 21:49:00,042 WARN received SIGTERM indicating exit request
+2015-08-11 21:49:00,042 INFO waiting for php-fpm to die
+2015-08-11 21:49:00,063 INFO stopped: php-fpm (exit status 0)
+2015-08-11 21:51:43,060 CRIT Set uid to user 0
+2015-08-11 21:51:43,061 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-11 21:51:43,061 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-11 21:51:43,085 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:51:43,086 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-11 21:51:43,086 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:51:43,086 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-11 21:51:43,086 INFO supervisord started with pid 1
+2015-08-11 21:51:44,090 INFO spawned: 'php-fpm' with pid 7
+2015-08-11 21:51:45,149 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-11 21:52:06,665 WARN received SIGTERM indicating exit request
+2015-08-11 21:52:06,665 INFO waiting for php-fpm to die
+2015-08-11 21:52:06,688 INFO stopped: php-fpm (exit status 0)
+2015-08-11 21:52:20,861 CRIT Set uid to user 0
+2015-08-11 21:52:20,861 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-11 21:52:20,861 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-11 21:52:20,886 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:52:20,886 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-11 21:52:20,886 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:52:20,886 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-11 21:52:20,886 INFO supervisord started with pid 1
+2015-08-11 21:52:21,889 INFO spawned: 'php-fpm' with pid 7
+2015-08-11 21:52:22,939 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-11 21:52:47,803 WARN received SIGTERM indicating exit request
+2015-08-11 21:52:47,804 INFO waiting for php-fpm to die
+2015-08-11 21:52:47,820 INFO stopped: php-fpm (exit status 0)
+2015-08-11 21:53:35,489 CRIT Set uid to user 0
+2015-08-11 21:53:35,489 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-11 21:53:35,489 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-11 21:53:35,512 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:53:35,512 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-11 21:53:35,513 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:53:35,513 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-11 21:53:35,513 INFO supervisord started with pid 1
+2015-08-11 21:53:36,517 INFO spawned: 'php-fpm' with pid 7
+2015-08-11 21:53:37,579 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-11 21:55:16,901 WARN received SIGTERM indicating exit request
+2015-08-11 21:55:16,902 INFO waiting for php-fpm to die
+2015-08-11 21:55:16,924 INFO stopped: php-fpm (exit status 0)
+2015-08-11 21:55:23,968 CRIT Set uid to user 0
+2015-08-11 21:55:23,968 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-11 21:55:23,968 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-11 21:55:23,991 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:55:23,991 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-11 21:55:23,992 INFO RPC interface 'supervisor' initialized
+2015-08-11 21:55:23,992 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-11 21:55:23,992 INFO supervisord started with pid 1
+2015-08-11 21:55:24,995 INFO spawned: 'php-fpm' with pid 7
+2015-08-11 21:55:26,054 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-11 21:59:57,040 WARN received SIGTERM indicating exit request
+2015-08-11 21:59:57,041 INFO waiting for php-fpm to die
+2015-08-11 21:59:57,059 INFO stopped: php-fpm (exit status 0)
+2015-08-11 22:00:15,511 CRIT Set uid to user 0
+2015-08-11 22:00:15,511 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-11 22:00:15,511 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-11 22:00:15,536 INFO RPC interface 'supervisor' initialized
+2015-08-11 22:00:15,536 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-11 22:00:15,537 INFO RPC interface 'supervisor' initialized
+2015-08-11 22:00:15,537 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-11 22:00:15,537 INFO supervisord started with pid 1
+2015-08-11 22:00:16,541 INFO spawned: 'php-fpm' with pid 7
+2015-08-11 22:00:17,598 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-11 22:16:06,090 WARN received SIGTERM indicating exit request
+2015-08-11 22:16:06,090 INFO waiting for php-fpm to die
+2015-08-11 22:16:06,115 INFO stopped: php-fpm (exit status 0)
+2015-08-12 11:53:43,079 CRIT Set uid to user 0
+2015-08-12 11:53:43,081 WARN Included extra file "/etc/supervisor/conf.d/php.conf" during parsing
+2015-08-12 11:53:43,081 WARN Included extra file "/etc/supervisor/conf.d/supervisord.conf" during parsing
+2015-08-12 11:53:43,136 INFO RPC interface 'supervisor' initialized
+2015-08-12 11:53:43,136 CRIT Server 'inet_http_server' running without any HTTP authentication checking
+2015-08-12 11:53:43,136 INFO RPC interface 'supervisor' initialized
+2015-08-12 11:53:43,136 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2015-08-12 11:53:43,136 INFO supervisord started with pid 1
+2015-08-12 11:53:44,142 INFO spawned: 'php-fpm' with pid 7
+2015-08-12 11:53:45,362 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2015-08-12 12:37:07,278 WARN received SIGTERM indicating exit request
+2015-08-12 12:37:07,279 INFO waiting for php-fpm to die
+2015-08-12 12:37:07,312 INFO stopped: php-fpm (exit status 0)

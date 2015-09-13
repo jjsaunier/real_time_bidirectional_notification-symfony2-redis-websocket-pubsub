@@ -1,4 +1,133 @@
-2015/06/12 17:25:26 [error] 5#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Interface 'ProxyManager\Proxy\VirtualProxyInterface' not found in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 2388" while reading response header from upstream, client: 172.17.42.1, server: notification.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.10:9000", host: "127.0.0.1:8081"
-2015/06/12 17:25:38 [error] 5#0: *4 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Interface 'ProxyManager\Proxy\VirtualProxyInterface' not found in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 2388" while reading response header from upstream, client: 172.17.42.1, server: notification.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.10:9000", host: "notification.dev:8081"
-2015/06/12 18:03:53 [error] 5#0: *5 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Call to undefined function dump() in /var/www/notification/app/AppKernel.php on line 43" while reading response header from upstream, client: 172.17.42.1, server: notification.dev, request: "GET /app_dev.php HTTP/1.1", upstream: "fastcgi://172.17.0.32:9000", host: "notification.dev:8081"
-2015/06/12 22:55:24 [error] 5#0: *1 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Interface 'ProxyManager\Proxy\VirtualProxyInterface' not found in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 2388" while reading response header from upstream, client: 172.17.42.1, server: notification.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.17.0.6:9000", host: "notification.dev:8081"
+2015/08/11 21:47:00 [error] 5#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Uncaught Except...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Uncaught Except...', Array)
+#4 [internal function]: Symfony\Component\Debug\ErrorHandler->handleException(Object(UnexpectedValueException))
+#5 {main}
+  thrown in /var/www/notification/app/cache/prod/classes.php on line 5688
+PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Fatal Error: Un...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Fatal Error: Un...', Array)
+#4 /var/www/notification/app/cache/prod/classes.php(2015): Symfony\Component\Debug\ErrorHandler->handleException(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#5 [internal function]: Symfony\Component\Debug\ErrorHandler::handleFatalError()
+#6 {main}
+  t" while reading response he
+2015/08/11 21:48:39 [error] 5#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Uncaught Except...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Uncaught Except...', Array)
+#4 [internal function]: Symfony\Component\Debug\ErrorHandler->handleException(Object(UnexpectedValueException))
+#5 {main}
+  thrown in /var/www/notification/app/cache/prod/classes.php on line 5688
+PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Fatal Error: Un...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Fatal Error: Un...', Array)
+#4 /var/www/notification/app/cache/prod/classes.php(2015): Symfony\Component\Debug\ErrorHandler->handleException(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#5 [internal function]: Symfony\Component\Debug\ErrorHandler::handleFatalError()
+#6 {main}
+  t" while reading response he
+2015/08/11 21:51:49 [error] 5#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Uncaught Except...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Uncaught Except...', Array)
+#4 [internal function]: Symfony\Component\Debug\ErrorHandler->handleException(Object(UnexpectedValueException))
+#5 {main}
+  thrown in /var/www/notification/app/cache/prod/classes.php on line 5688
+PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Fatal Error: Un...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Fatal Error: Un...', Array)
+#4 /var/www/notification/app/cache/prod/classes.php(2015): Symfony\Component\Debug\ErrorHandler->handleException(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#5 [internal function]: Symfony\Component\Debug\ErrorHandler::handleFatalError()
+#6 {main}
+  t" while reading response he
+2015/08/11 21:52:24 [error] 5#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Uncaught Except...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Uncaught Except...', Array)
+#4 [internal function]: Symfony\Component\Debug\ErrorHandler->handleException(Object(UnexpectedValueException))
+#5 {main}
+  thrown in /var/www/notification/app/cache/prod/classes.php on line 5688
+PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Fatal Error: Un...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Fatal Error: Un...', Array)
+#4 /var/www/notification/app/cache/prod/classes.php(2015): Symfony\Component\Debug\ErrorHandler->handleException(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#5 [internal function]: Symfony\Component\Debug\ErrorHandler::handleFatalError()
+#6 {main}
+  t" while reading response he
+2015/08/11 21:53:42 [error] 5#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Uncaught Except...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Uncaught Except...', Array)
+#4 [internal function]: Symfony\Component\Debug\ErrorHandler->handleException(Object(UnexpectedValueException))
+#5 {main}
+  thrown in /var/www/notification/app/cache/prod/classes.php on line 5688
+PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Fatal Error: Un...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Fatal Error: Un...', Array)
+#4 /var/www/notification/app/cache/prod/classes.php(2015): Symfony\Component\Debug\ErrorHandler->handleException(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#5 [internal function]: Symfony\Component\Debug\ErrorHandler::handleFatalError()
+#6 {main}
+  t" while reading response he
+2015/08/11 21:55:27 [error] 5#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Uncaught Except...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Uncaught Except...', Array)
+#4 [internal function]: Symfony\Component\Debug\ErrorHandler->handleException(Object(UnexpectedValueException))
+#5 {main}
+  thrown in /var/www/notification/app/cache/prod/classes.php on line 5688
+PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Fatal Error: Un...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Fatal Error: Un...', Array)
+#4 /var/www/notification/app/cache/prod/classes.php(2015): Symfony\Component\Debug\ErrorHandler->handleException(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#5 [internal function]: Symfony\Component\Debug\ErrorHandler::handleFatalError()
+#6 {main}
+  t" while reading response he
+2015/08/11 22:00:45 [error] 5#0: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Uncaught Except...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Uncaught Except...', Array)
+#4 [internal function]: Symfony\Component\Debug\ErrorHandler->handleException(Object(UnexpectedValueException))
+#5 {main}
+  thrown in /var/www/notification/app/cache/prod/classes.php on line 5688
+PHP message: PHP Fatal error:  Uncaught exception 'UnexpectedValueException' with message 'The stream or file "/var/www/notification/app/logs/prod.log" could not be opened: failed to open stream: Permission denied' in /var/www/notification/app/cache/prod/classes.php:5688
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(5628): Monolog\Handler\StreamHandler->write(Array)
+#1 /var/www/notification/app/cache/prod/classes.php(6123): Monolog\Handler\AbstractProcessingHandler->handle(Array)
+#2 /var/www/notification/app/cache/prod/classes.php(6192): Monolog\Logger->addRecord(500, 'Fatal Error: Un...', Array)
+#3 /var/www/notification/app/cache/prod/classes.php(1963): Monolog\Logger->log('critical', 'Fatal Error: Un...', Array)
+#4 /var/www/notification/app/cache/prod/classes.php(2015): Symfony\Component\Debug\ErrorHandler->handleException(Object(Symfony\Component\Debug\Exception\FatalErrorException), Array)
+#5 [internal function]: Symfony\Component\Debug\ErrorHandler::handleFatalError()
+#6 {main}
+  t" while reading response he

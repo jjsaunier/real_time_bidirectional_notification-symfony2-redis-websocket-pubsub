@@ -11,7 +11,3 @@ login_check:
 
 logout:
     pattern:   /logout
-
-moonwalk:
-    resource: @MoonWalkBundle/Controller
-    type: annotation

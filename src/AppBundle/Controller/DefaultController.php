@@ -30,22 +30,60 @@ class DefaultController extends Controller
 
             $redisRouter = $this->container->get('gos_pubsub_router.redis');
 
+            $qpusher = $this->container->get('gos_web_socket.amqp.pusher');
+            $notification->setContent('AMQP pusher');
+            $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+
+            $zpusher = $this->container->get('gos_web_socket.zmq.pusher');
+            $notification->setContent('ZMQ pusher');
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user2']);
+
+            $wspusher = $this->container->get('gos_web_socket.wamp.pusher');
+            $notification->setContent('Wesocket pusher');
+            $wspusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+
+
+            $wspusher->push(json_encode($notification), 'user_notification', ['username' => 'user2']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+//            $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+
+            $notification->setContent('LOL');
+
             $notificationCenter->publish(
                 $redisRouter->generate('user_notification', ['username' => 'user2']),
                 $notification
             );
 
+            $notification->setContent('BOL');
             $notificationCenter->publish(
                 $redisRouter->generate('user_application_notification', [ 'username' => '*', 'application' => '*']),
                 $notification
             );
+
+            $notification->setContent('COL');
 
             $notificationCenter->publish(
                 $redisRouter->generate('user_notification', [ 'username' => 'all']),
                 $notification
             );
 
-            $notificationCenter->count($redisRouter->generate('user_notification', [ 'username' => 'user2']));
+//            $notificationCenter->count($redisRouter->generate('user_notification', [ 'username' => 'user2']));
 
 //            $notification = $notificationCenter->getNotification($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
 //            $notificationCenter->markAsViewed($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');

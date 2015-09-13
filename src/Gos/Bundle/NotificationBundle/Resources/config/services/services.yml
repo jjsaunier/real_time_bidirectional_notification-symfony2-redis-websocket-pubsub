@@ -27,8 +27,6 @@ services:
 
     gos_notification.user.topic:
         class: Gos\Bundle\NotificationBundle\Topic\UserNotificationTopic
-        arguments:
-            - @gos_web_socket.wamp.pipeline
         tags:
             - { name: gos_web_socket.topic }
 

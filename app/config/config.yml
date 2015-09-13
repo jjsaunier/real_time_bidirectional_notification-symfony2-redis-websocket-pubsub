@@ -133,10 +133,24 @@ gos_web_socket:
             resources:
                 - @GosNotificationBundle/Resources/config/pubsub/websocket/notification.yml
                 - @GosNotificationBundle/Resources/config/pubsub/websocket/notification_rpc.yml
-                - @MoonWalkBundle/Resources/config/websocket/watcher.yml
     origins:
         - www.notification.dev
         - notification.dev
+    pushers:
+        zmq:
+            default: true
+            host: 127.0.0.1
+            port: 5555
+            persistent: true
+            protocol: tcp
+        amqp:
+            host: 127.0.0.1
+            port: 5672
+            login: guest
+            password: guest
+        wamp:
+            host: notification.dev
+            port: 1337
 
 # Gos Notification
 gos_notification:
