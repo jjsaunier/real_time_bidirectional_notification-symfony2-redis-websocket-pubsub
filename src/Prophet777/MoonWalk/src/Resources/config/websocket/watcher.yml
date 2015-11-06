@@ -1,8 +1,0 @@
-watcher_notify:
-    channel: watcher
-    handler:
-        callback: 'prophet777.watcher.topic'
-    requirements:
-        type:
-            pattern: debug|info|notice|error|emergency
-            wildcard: true

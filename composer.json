@@ -15,7 +15,7 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "~2.6.0",
+        "symfony/symfony": "~2.7",
         "doctrine/orm": "~2.5",
         "doctrine/dbal": "~2.5",
         "doctrine/doctrine-bundle": "~1.2",
@@ -37,7 +37,6 @@
         "react/promise": "^2.2",
         "ramsey/uuid": "^2.8",
         "webmozart/path-util": "^2.0",
-        "mkraemer/react-inotify": "^1.1",
         "react/zmq": "0.2.*|0.3.*",
         "guzzlehttp/guzzle": "^6.0",
         "react/child-process": "^0.4.0",

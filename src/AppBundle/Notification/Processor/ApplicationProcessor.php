@@ -1,6 +1,6 @@
 <?php
 
-namespace  AppBundle\Notification\Processor;
+namespace AppBundle\Notification\Processor;
 
 use Gos\Bundle\NotificationBundle\Model\NotificationInterface;
 use Gos\Bundle\NotificationBundle\Processor\ProcessorInterface;

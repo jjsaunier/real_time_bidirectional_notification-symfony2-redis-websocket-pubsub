@@ -1,0 +1,64 @@
+application:
+    image: busybox
+    volumes:
+        - "../:/var/www/notification"
+    tty: true
+    container_name: notification_code_base
+
+mysql:
+  image: tutum/mysql
+  restart: always
+  ports:
+    - "3306:3306"
+  volumes:
+    - "./data/mysql/:/var/lib/mysql/"
+    - "./sql/:/var/sql/"
+  container_name: notification_mysql
+
+redis:
+  image: tutum/redis
+  ports:
+    - "6379:6379"
+  volumes:
+    - "./logs/redis/:/var/log/redis/"
+    - "./data/redis/:/data/"
+  container_name: notification_redis
+
+php:
+  build: notification/php
+  restart: always
+  expose:
+    - "9000:9000"
+    - "9001:9001"
+  volumes:
+    - "./logs/php/:/var/log/php/"
+  container_name: notification_php
+
+nginx:
+  build: notification/nginx
+  restart: always
+  ports:
+    - "8080:80"
+  volumes:
+    - "./logs/nginx/:/var/log/nginx/"
+  container_name: notification_nginx
+
+mongodb:
+  image: tutum/mongodb
+  restart: always
+  ports:
+    - "27017:27017"
+    - "28017:28017"
+  volumes:
+    - "./logs/mongodb/:/var/log/mongodb/"
+  container_name: noitification_mongodb
+
+rabbitmq:
+  image: tutum/rabbitmq
+  restart: always
+  volumes:
+    - "./data/rabbitmq/:/var/lib/rabbitmq/mnesia/"
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+  container_name: notification_rabbitmq

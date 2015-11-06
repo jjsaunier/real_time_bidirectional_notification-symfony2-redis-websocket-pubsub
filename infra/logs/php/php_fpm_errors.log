@@ -1,0 +1,389 @@
+[06-Nov-2015 13:05:27 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:27 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:29 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:29 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:29 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:29 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:29 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:29 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:30 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app.php on line 7
+[06-Nov-2015 13:05:40 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 13:05:40 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 13:17:52 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library '/usr/lib/php5/20121212/zmq.so' - /usr/lib/php5/20121212/zmq.so: cannot open shared object file: No such file or directory in Unknown on line 0
+[06-Nov-2015 13:58:18 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 13:58:18 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:03:59 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:03:59 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:08 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:08 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:09 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:10 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:10 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:10 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:10 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:10 UTC] PHP Warning:  require_once(/var/www/notification/web/../app/bootstrap.php.cache): failed to open stream: No such file or directory in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 14:04:10 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/notification/web/../app/bootstrap.php.cache' (include_path='.:/usr/share/php:/usr/share/pear') in /var/www/notification/web/app_dev.php on line 13
+[06-Nov-2015 16:10:10 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'notification.sessions' doesn't exist' in /var/www/notification/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/Storage/Handler/PdoSessionHandler.php:336
+Stack trace:
+#0 /var/www/notification/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/Storage/Handler/PdoSessionHandler.php(336): PDOStatement->execute()
+#1 /var/www/notification/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/Storage/Proxy/SessionHandlerProxy.php(77): Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler->write('c0bkrbuu9r91ahk...', '')
+#2 [internal function]: Symfony\Component\HttpFoundation\Session\Storage\Proxy\SessionHandlerProxy->write('c0bkrbuu9r91ahk...', '')
+#3 [internal function]: session_write_close()
+#4 {main}
+  thrown in /var/www/notification/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/Storage/Handler/PdoSessionHandler.php on line 336
+[06-Nov-2015 16:26:39 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:26:39 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerResolver.php(65): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Controller/ControllerResolver.php(76): Symfony\Bundle\FrameworkBundle\Controller\Controlle in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:26:39 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:26:39 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:26:39 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:26:39 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerResolver.php(65): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Controller/ControllerResolver.php(76): Symfony\Bundle\FrameworkBundle\Controller\Controlle in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:26:58 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:26:58 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:26:58 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:26:58 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:26:58 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:26:58 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:05 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:05 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:05 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:05 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:05 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:05 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:06 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:06 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:06 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:06 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:06 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:06 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:07 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:08 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:08 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:08 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:08 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:08 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:08 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:10 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:10 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:14 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:14 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:14 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:14 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:27:14 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:27:14 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:31:14 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:31:14 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:31:14 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:31:14 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:31:14 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:31:14 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:31:53 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:31:53 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:31:53 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:31:54 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:31:54 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:31:54 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:32:13 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:32:13 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:32:19 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:32:19 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129
+[06-Nov-2015 16:41:27 UTC] PHP Fatal error:  Call to undefined method Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper::registerListener() in /var/www/notification/app/cache/prod/appProdProjectContainer.php on line 1405
+[06-Nov-2015 16:41:27 UTC] PHP Fatal error:  Uncaught exception 'Symfony\Component\Debug\Exception\UndefinedMethodException' with message 'Attempted to call an undefined method named "registerListener" of class "Symfony\Bundle\SecurityBundle\Templating\Helper\LogoutUrlHelper".' in /var/www/notification/app/cache/prod/appProdProjectContainer.php:1405
+Stack trace:
+#0 {main}
+
+Next exception 'Symfony\Component\DependencyInjection\Exception\ServiceCircularReferenceException' with message 'Circular reference detected for service "twig.controller.exception", path: "twig.controller.exception -> twig -> templating.helper.logout_url".' in /var/www/notification/app/bootstrap.php.cache:2129
+Stack trace:
+#0 /var/www/notification/app/cache/prod/classes.php(2934): Symfony\Component\DependencyInjection\Container->get('twig.controller...')
+#1 /var/www/notification/app/cache/prod/classes.php(2559): Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver->createController('twig.controller...')
+#2 /var/www/notification/app/bootstrap.php.cache(3102): Symfony\Component\ in /var/www/notification/app/bootstrap.php.cache on line 2129

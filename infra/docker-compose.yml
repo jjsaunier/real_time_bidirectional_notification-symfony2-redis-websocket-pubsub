@@ -1,43 +1,67 @@
 application:
-    build: notification/code
-    volumes:
-        - ../:/var/www/notification
-        - logs/app/:/var/www/notification/app/logs
-    tty: true
-
-mariadb:
-    build: notification/mariadb
-    ports:
-        - 3308:3306
-    environment:
-        - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=notification
-        - MYSQL_USER=root
-        - MYSQL_PASSWORD=root
+  extends:
+    file: common.yml
+    service: application
 
 php:
-    build: notification/php
-    ports:
-        - 9000:9000
-        - 9001:9001
-    volumes:
-        - logs/php/:/var/log/php
-    volumes_from:
-        - application
-    links:
-        - mariadb
-    environment:
-        - PHP_SECRET=sjoidf9763klmdflfoegfihk676430jjghuj876vbth543
+  extends:
+    file: common.yml
+    service: php
+  links:
+    - redis
+    - mongodb
+    - mysql
+  volumes_from:
+    - application
+  environment:
+    - PHP_SECRET=sjoidf9763klmdflfoegfihk676430jjghuj876vbth543
+    - SYMFONY_DOMAIN=127.0.0.1
+    - REDIS_APPENDONLY=yes
+    - REDIS_APPENDFSYNC=always
+    - REDIS_PASS=azerty
+    - MONGODB_PASS=azerty
+    - MONGODB_COLLECTION=notification
+    - RABBITMQ_USER=admin
+    - RABBITMQ_PASS=azerty
+    - MYSQL_USER=root
+    - MYSQL_PASS=azerty
+
+redis:
+  extends:
+    file: common.yml
+    service: redis
+  environment:
+    - REDIS_APPENDONLY=yes
+    - REDIS_APPENDFSYNC=always
+    - REDIS_PASS=azerty
 
 nginx:
-    build: notification/nginx
-    ports:
-        - 1337:1337
-        - 8081:80
-        - 8082:443
-    links:
-        - php
-    volumes_from:
-        - application
-    volumes:
-        - logs/nginx/:/var/log/nginx
+  extends:
+    file: common.yml
+    service: nginx
+  volumes_from:
+    - application
+  links:
+    - php
+
+mysql:
+  extends:
+    file: common.yml
+    service: mysql
+  environment:
+    - MYSQL_PASS=azerty
+
+mongodb:
+  extends:
+    file: common.yml
+    service: mongodb
+  environment:
+    - MONGODB_PASS=azerty
+    - MONGODB_COLLECTION=notification
+
+rabbitmq:
+  extends:
+    file: common.yml
+    service: rabbitmq
+  environment:
+    - RABBITMQ_PASS=azerty
