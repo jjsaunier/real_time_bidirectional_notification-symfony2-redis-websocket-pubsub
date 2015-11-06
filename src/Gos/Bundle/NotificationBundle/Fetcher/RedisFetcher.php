@@ -6,14 +6,15 @@ use Gos\Bundle\NotificationBundle\Exception\NotFoundNotificationException;
 use Gos\Bundle\NotificationBundle\Model\NotificationInterface;
 use Gos\Bundle\NotificationBundle\Redis\IndexOfElement;
 use Gos\Bundle\NotificationBundle\Serializer\NotificationSerializerInterface;
-use Predis\Client;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
+use Predis\Client as PredisClient;
+use Snc\RedisBundle\Client\Phpredis\Client as PhpClient;
 
 class RedisFetcher implements FetcherInterface
 {
     /**
-     * @var Client
+     * @var PredisClient|PhpClient
      */
     protected $client;
 
@@ -28,21 +29,28 @@ class RedisFetcher implements FetcherInterface
     protected $logger;
 
     /**
-     * @param Client                          $client
+     * @param PredisClient|PhpClient          $client
      * @param NotificationSerializerInterface $serializer
      * @param LoggerInterface                 $logger
      */
     public function __construct(
-        Client $client,
+        $redis,
         NotificationSerializerInterface $serializer,
         LoggerInterface $logger = null
     ) {
-        $this->client = $client;
+
+        if(!$redis instanceof PhpClient && !$redis instanceof PredisClient){
+            throw new \Exception('Bad client ' . get_class($redis));
+        }
+
+        $this->client = $redis;
         $this->serializer = $serializer;
         $this->logger = null === $logger ? new NullLogger() : $logger;
 
         //Command to enable to retrieve notification by uuid
-        $client->getProfile()->defineCommand('lidxof', new IndexOfElement());
+        if($this->client instanceof PredisClient){
+            $redis->getProfile()->defineCommand('lidxof', new IndexOfElement());
+        }
     }
 
     /**
@@ -123,7 +131,12 @@ class RedisFetcher implements FetcherInterface
      */
     protected function doGetNotification($url, $uuid)
     {
-        $index = $this->client->lidxof($url, 'uuid', $uuid);
+        if($this->client instanceof PredisClient){
+            $index = $this->client->lidxof($url, 'uuid', $uuid);
+        }else{
+            $index = $this->client->eval(IndexOfElement::getScript(), ['uuid'], 1);
+        }
+
 
         if ($index === -1) {
             throw new NotFoundNotificationException($uuid);

@@ -101,21 +101,25 @@ monolog:
 snc_redis:
     clients:
         notification:
-            type: predis
+            type: phpredis
             alias: notification #snc_redis.notification
-            dsn: redis://127.0.0.1/1
-            logging: %kernel.debug%
+            dsn: redis://redis/1
+            logging: true
             options:
                 profile: 2.8
                 read_write_timeout: 0
-        cache:
-            type: predis
-            alias: cache #snc_redis.cache
-            dsn: redis://127.0.0.1/2
-            logging: %kernel.debug%
-            options:
-                connection_timeout: 0
-                read_write_timeout: 0
+
+# Doctrine cache
+doctrine_cache:
+    providers:
+        websocket_client_cache:
+            type: redis
+            alias: gos_web_socket.client_storage.driver.redis
+            redis:
+              host: redis
+              port: 6379
+              timeout: 30
+              database: 2
 
 # Gos Web Socket Bundle
 gos_web_socket:
@@ -123,7 +127,8 @@ gos_web_socket:
         firewall: secured_area
         session_handler: @session.handler.pdo
         storage:
-            driver: @gos_web_socket.client_storage.driver.predis
+            driver: @gos_web_socket.client_storage.driver.redis
+            decorator: @gos_web_socket.client_storage.doctrine.decorator
     shared_config: true
     server:
         host: notification.dev

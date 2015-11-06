@@ -11,14 +11,12 @@ php:
     - redis
     - mongodb
     - mysql
+    - rabbitmq
   volumes_from:
     - application
   environment:
     - PHP_SECRET=sjoidf9763klmdflfoegfihk676430jjghuj876vbth543
     - SYMFONY_DOMAIN=127.0.0.1
-    - REDIS_APPENDONLY=yes
-    - REDIS_APPENDFSYNC=always
-    - REDIS_PASS=azerty
     - MONGODB_PASS=azerty
     - MONGODB_COLLECTION=notification
     - RABBITMQ_USER=admin
@@ -33,7 +31,7 @@ redis:
   environment:
     - REDIS_APPENDONLY=yes
     - REDIS_APPENDFSYNC=always
-    - REDIS_PASS=azerty
+    - REDIS_PASS=**None**
 
 nginx:
   extends:

@@ -32,7 +32,7 @@ class IndexOfElement extends Command
      *
      * @return string
      */
-    public function getScript()
+    public static function getScript()
     {
         return <<<LUA
 local key = KEYS[1]

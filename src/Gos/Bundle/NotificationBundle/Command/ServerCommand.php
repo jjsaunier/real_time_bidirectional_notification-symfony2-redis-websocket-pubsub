@@ -46,10 +46,12 @@ class ServerCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $options = array_slice($this->pubsubConfig, 2);
         $this->server->launch(
             $this->pubsubConfig['host'],
             $this->pubsubConfig['port'],
-            $input->getOption('profile')
+            $input->getOption('profile'),
+            $options
         );
     }
 }

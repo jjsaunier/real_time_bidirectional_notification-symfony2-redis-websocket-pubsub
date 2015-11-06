@@ -4,14 +4,15 @@ namespace Gos\Bundle\NotificationBundle\Publisher;
 
 use Gos\Bundle\NotificationBundle\Context\NotificationContextInterface;
 use Gos\Bundle\NotificationBundle\Model\NotificationInterface;
-use Predis\Client;
+use Predis\Client as PredisClient;
+use Snc\RedisBundle\Client\Phpredis\Client as PhpClient;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 
 class RedisPublisher implements PublisherInterface
 {
     /**
-     * @var Client
+     * @var PredisClient|PhpClient
      */
     protected $redis;
 
@@ -21,11 +22,17 @@ class RedisPublisher implements PublisherInterface
     protected $logger;
 
     /**
-     * @param Client          $redis
-     * @param LoggerInterface $logger
+     * RedisPublisher constructor.
+     *
+     * @param PredisClient|PhpClient $redis
+     * @param LoggerInterface|null   $logger
      */
-    public function __construct(Client $redis, LoggerInterface $logger = null)
+    public function __construct($redis, LoggerInterface $logger = null)
     {
+        if(!$redis instanceof PhpClient && !$redis instanceof PredisClient){
+            throw new \Exception('Bad client ' . get_class($redis));
+        }
+
         $this->redis = $redis;
         $this->logger = null === $logger ? new NullLogger() : $logger;
     }

@@ -1,8 +1,8 @@
 services:
-    gos_web_socket.client_storage.driver.predis:
-        class: Gos\Bundle\WebSocketBundle\Client\Driver\PredisDriver
-        arguments:
-            - @snc_redis.cache
+ #   gos_web_socket.client_storage.driver.predis:
+  #      class: Gos\Bundle\WebSocketBundle\Client\Driver\PredisDriver
+    #    arguments:
+   #         - @snc_redis.cache
 
     app.user.notification.processor:
         class: AppBundle\Notification\Processor\UserProcessor

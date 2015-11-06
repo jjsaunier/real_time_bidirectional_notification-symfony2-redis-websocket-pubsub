@@ -30,6 +30,11 @@ class DefaultController extends Controller
 
             $redisRouter = $this->container->get('gos_pubsub_router.redis');
 
+            $notificationCenter->publish(
+                $redisRouter->generate('user_notification', ['username' => 'user1']),
+                $notification
+            );
+
             $qpusher = $this->container->get('gos_web_socket.amqp.pusher');
             $notification->setContent('AMQP pusher');
             $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
@@ -61,7 +66,7 @@ class DefaultController extends Controller
             $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
             $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
             $zpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
-//            $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
+            $qpusher->push(json_encode($notification), 'user_notification', ['username' => 'user1']);
 
             $notification->setContent('LOL');
 
@@ -83,9 +88,9 @@ class DefaultController extends Controller
                 $notification
             );
 
-//            $notificationCenter->count($redisRouter->generate('user_notification', [ 'username' => 'user2']));
+            $notificationCenter->count($redisRouter->generate('user_notification', [ 'username' => 'user2']));
 
-//            $notification = $notificationCenter->getNotification($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
+            //$notification = $notificationCenter->getNotification($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
 //            $notificationCenter->markAsViewed($redisRouter->generate('user_notification', [ 'username' => 'user2']), '3d226551-b67e-4bc0-9885-6925498fe658');
         }
 

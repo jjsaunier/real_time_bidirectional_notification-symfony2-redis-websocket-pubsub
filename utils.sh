@@ -3,8 +3,41 @@
 CODE_PATH="/var/www/notification"
 
 function permission(){
-    sudo chmod 777 -Rf app/cache app/logs
-    sudo chown $(whoami):$(whoami) -R infra/data infra/logs
+    if [ -d "app/logs" ]; then
+        sudo chown $(whoami):$(whoami) -R app/logs
+    fi
+
+    if [ -d "app/cache" ]; then
+        sudo chown $(whoami):$(whoami) -R app/cache
+    fi
+
+    if [ -d "infra/logs" ]; then
+        sudo chown $(whoami):$(whoami) -R infra/logs
+    fi
+
+    if [ -f "composer.lock" ]; then
+        sudo chown $(whoami):$(whoami) -R composer.lock
+    fi
+
+    if [ -d "infra/data" ]; then
+        sudo chown $(whoami):$(whoami) -R infra/data
+    fi
+
+    if [ -d "web/bundles" ]; then
+        sudo chown $(whoami):$(whoami) -R web/bundles
+    fi
+
+    if [ -f "app/config/parameters.yml" ]; then
+        sudo chown $(whoami):$(whoami) app/config/parameters.yml
+    fi
+
+    if [ -d "bin" ]; then
+        sudo chown -Rf $(whoami):$(whoami) bin
+    fi
+
+    if [ -f "app/bootstrap.php.cache" ]; then
+         sudo chown $(whoami):$(whoami) app/bootstrap.php.cache
+    fi
 }
 
 if [[ $1 == 'install' ]]; then
@@ -23,17 +56,15 @@ if [[ $1 == 'install' ]]; then
     docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH  && composer install"
 
     permission
-    sudo chown -Rf $(whoami):$(whoami) app/bootstrap.php.cache bin
     sudo rm -r web/bundles
 
     #assets
-    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console assetic:dump"
     docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console assets:install"
+    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console assetic:dump"
     docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console cache:warmup -e=dev"
 
     #permission write
     permission
-    sudo chown $(whoami):$(whoami) -R vendor app/config web/bundles
 fi
 
 if [[ $1 == 'start' ]]; then
@@ -49,12 +80,14 @@ fi
 
 if [[ $1 == 'composer' ]]; then
     shift
-    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && composer $@"
+    args=$@
+    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && composer $args"
 fi
 
 if [[ $1 == 'sf' ]]; then
     shift
-    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console $@"
+    args=$@
+    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console $args"
 fi
 
 if [[ $1 == 'perm' ]]; then
@@ -71,4 +104,32 @@ fi
 
 if [[ $1 == 'inspect' ]]; then
     docker exec -ti $(docker ps --filter name=notification_$2 -q) bash
+fi
+
+if [[ $1 == 'docker' ]]; then
+    cd infra
+    shift
+    args=$@
+    docker-compose $args
+fi
+
+if [[ $1 == 'prod' ]]; then
+    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console cache:clear -e=prod"
+    docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console cache:warmup -e=prod"
+fi
+
+if [[ $1 == 'websocket' ]]; then
+    if [[ $2 == 'prod' ]]; then
+        docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console gos:websocket:server -e=prod"
+    else
+        docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console gos:websocket:server -e=dev"
+    fi
+fi
+
+if [[ $1 == 'notification' ]]; then
+    if [[ $2 == 'prod' ]]; then
+        docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console gos:notification:server -e=prod"
+    else
+        docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console gos:notification:server -e=dev"
+    fi
 fi

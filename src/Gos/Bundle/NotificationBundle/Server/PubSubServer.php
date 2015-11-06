@@ -96,7 +96,7 @@ class PubSubServer implements ServerInterface
     /**
      * {@inheritdoc}
      */
-    public function launch($host, $port, $profile)
+    public function launch($host, $port, $profile, array $options = [])
     {
         $this->logger->info('Starting redis pubsub');
 
@@ -106,7 +106,9 @@ class PubSubServer implements ServerInterface
             $this->handlePnctlEvent();
         }
 
-        $this->client = new Client('tcp://' . $host . ':' . $port, $this->loop);
+        $dns = sprintf('tcp://%s:%s', $host, $port);
+
+        $this->client = new Client($dns, $this->loop);
 
         $dispatcher = new EventEmitter();
         $dispatcher->on('notification', $this->processor);
@@ -119,8 +121,15 @@ class PubSubServer implements ServerInterface
 
         $subscriptions = $this->getSubscriptions();
 
-        $this->client->connect(function ($client) use ($dispatcher, $subscriptions) {
-            $this->pubSub = $client->pubSubLoop($subscriptions, function ($event, $pubsub) use ($dispatcher) {
+        $timeoutTimer = $this->loop->addTimer(5, function(){
+            $this->logger->critical('Redis connection timed out');
+            $this->loop->stop();
+        });
+
+        $this->client->connect(function ($client) use ($dispatcher, $subscriptions, $timeoutTimer) {
+            $timeoutTimer->cancel();
+
+            $this->pubSub = $client->pubSubLoop($subscriptions, function ($event, $pubsub) use ($dispatcher, $timeoutTimer) {
 
                 if($event instanceof Error){
                     $this->logger->critical($event->getMessage());

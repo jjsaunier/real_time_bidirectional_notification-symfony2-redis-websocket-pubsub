@@ -41,7 +41,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "react/child-process": "^0.4.0",
         "react/socket-client": "^0.4.3",
-        "react/dns": "^0.4.1"
+        "react/dns": "^0.4.1",
+        "gos/react-amqp": "^0.1.2"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
