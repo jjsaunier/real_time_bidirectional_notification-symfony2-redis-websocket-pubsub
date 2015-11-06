@@ -16,7 +16,7 @@ mysql:
   container_name: notification_mysql
 
 redis:
-  image: tutum/redis
+  build: notification/redis
   ports:
     - "6379:6379"
   volumes:

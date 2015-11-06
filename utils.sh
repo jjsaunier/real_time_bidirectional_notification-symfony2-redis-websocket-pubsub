@@ -2,8 +2,13 @@
 
 CODE_PATH="/var/www/notification"
 
+function permission(){
+    sudo chmod 777 -Rf app/cache app/logs
+    sudo chown $(whoami):$(whoami) -R infra/data infra/logs
+}
+
 if [[ $1 == 'install' ]]; then
-    sudo chmod 777 -Rf app/cache app/logs infra/data infra/logs
+    permission
 
     cd infra
     docker-compose up -d
@@ -17,10 +22,9 @@ if [[ $1 == 'install' ]]; then
     #composer install
     docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH  && composer install"
 
-    #permission write
-    sudo chmod 777 -Rf app/cache app/logs
-
-    rm -r src/web/bundles
+    permission
+    sudo chown -Rf $(whoami):$(whoami) app/bootstrap.php.cache bin
+    sudo rm -r web/bundles
 
     #assets
     docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console assetic:dump"
@@ -28,7 +32,8 @@ if [[ $1 == 'install' ]]; then
     docker exec -it $(docker ps --filter name=notification_php -q) sh -c "cd $CODE_PATH /var/www/notification && app/console cache:warmup -e=dev"
 
     #permission write
-    sudo chmod 777 -Rf app/cache app/logs
+    permission
+    sudo chown $(whoami):$(whoami) -R vendor app/config web/bundles
 fi
 
 if [[ $1 == 'start' ]]; then
@@ -53,7 +58,7 @@ if [[ $1 == 'sf' ]]; then
 fi
 
 if [[ $1 == 'perm' ]]; then
-    sudo chmod 777 -Rf app/cache/ app/logs/
+    permission
 fi
 
 if [[ $1 == 'rebuild' ]]; then

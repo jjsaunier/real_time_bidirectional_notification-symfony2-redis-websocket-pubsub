@@ -10,14 +10,13 @@ use Gos\Bundle\NotificationBundle\Router\Dumper\RedisDumper;
 use Gos\Bundle\WebSocketBundle\Server\Type\ServerInterface;
 use Gos\Component\PnctlEventLoopEmitter\PnctlEmitter;
 use Predis\Async\Client;
-use Predis\Async\PubSub\PubSubContext;
-use Predis\PubSub\Consumer;
-use Predis\ResponseError;
+use Predis\Response\Error;
 use Psr\Log\LoggerInterface;
 use React\EventLoop\Factory;
 use React\EventLoop\LoopInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\Log\NullLogger;
+use Predis\Async\PubSub\Consumer;
 
 /**
  * @author Johann Saunier <johann_27@hotmail.fr>
@@ -39,7 +38,7 @@ class PubSubServer implements ServerInterface
     /** @var RedisDumper */
     protected $redisDumper;
 
-    /** @var  PubSubContext */
+    /** @var  Consumer */
     protected $pubSub;
 
     /** @var ServerNotificationProcessorInterface  */
@@ -120,10 +119,14 @@ class PubSubServer implements ServerInterface
 
         $subscriptions = $this->getSubscriptions();
 
-
         $this->client->connect(function ($client) use ($dispatcher, $subscriptions) {
-
             $this->pubSub = $client->pubSubLoop($subscriptions, function ($event, $pubsub) use ($dispatcher) {
+
+                if($event instanceof Error){
+                    $this->logger->critical($event->getMessage());
+                    return;
+                }
+
                 if ($event->payload === 'quit') {
                     $this->stop();
                 }

@@ -144,10 +144,10 @@ gos_web_socket:
             persistent: true
             protocol: tcp
         amqp:
-            host: 127.0.0.1
+            host: rabbitmq
             port: 5672
-            login: guest
-            password: guest
+            login: admin
+            password: azerty
         wamp:
             host: notification.dev
             port: 1337
@@ -165,17 +165,12 @@ gos_notification:
     pubsub_server:
         type: redis #today tha'ts change nothing, only redis is available
         config:
-            host: 127.0.0.1
+            host: redis
             port: 6379
 
 #Gos PubSub Router
 gos_pubsub_router:
     routers:
-#        websocket:
-#            context:
-#                tokenSeparator: '/'
-#            resources:
-#                - @GosNotificationBundle/Resources/config/pubsub/websocket/notification.yml
         redis:
             context:
                 tokenSeparator: ':'
